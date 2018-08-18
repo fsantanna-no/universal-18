@@ -5,8 +5,11 @@
 \usepackage[T1]{fontenc}
 \usepackage{url}
 \usepackage{verbatim}
+\usepackage{xspace}
 
-\title{ Uma Plataforma de Baixo Consumo Energético, Flexível e Barata para a
+\newcommand{\CEU}{\textsc{C\'{e}u}\xspace}
+
+\title{ Uma Plataforma de Baixo Consumo de Energia, Flexível e Barata para a
         Internet das Coisas }
 
 \author{PROPONENTE:                                     \\
@@ -27,82 +30,26 @@ Chamada Universal MCTIC/CNPq 2018
 
 %\begin{abstract} \end{abstract}
 
-\section{Project}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a) Identificação do projeto, incluindo título, palavras-chave e resumo;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{ Project title (in portuguese): }
+\section{Identificação do Projeto}
 
-Uma Plataforma de Baixo Consumo Energético, Flexível e Barata para a Internet
+\subsection{Título}
+
+Uma Plataforma de Baixo Consumo de Energia, Flexível e Barata para a Internet
 das Coisas
 
-\subsection{ Project title (in english): }
+%A Low-Power, Flexible, and Cheap Platform for the Internet of Things
 
-A Low-Power, Flexible, and Cheap Platform for the Internet of Things
+\subsection{Palavras-Chave}
 
-\subsection{ Keywords (in portuguese): }
+internet das coisas, eficiência energética, linguagem síncrona
 
-(Enter keywords separated by comma, 1 word minimum, 6 words maximum)
+%iot, arduino, low power, synchronous language
 
-iot, arduino, eficiência energética, linguagem síncrona
-
-\subsection{ Keywords (in english): }
-
-(Enter keywords separated by comma, 1 word minimum, 6 words maximum)
-
-iot, arduino, low power, synchronous language
-
-\subsection{ Objetivo (Em Português): }
-
-%(Somente texto até 4000 caracteres, podendo utilizar recursos de copiar e colar)
-
-Criar uma plataforma de hardware e software para educação e pesquisa em
-Internet das Coisas com as seguintes características:
-
-\begin{itemize}
-%
-\item Baixo Consumo Energético:
-  O hardware deve possuir modos de economia de energia para todos os seus
-  componentes, sejam eles o microcontrolador, sensores, ou módulos de rádio.
-  O software será baseado em uma linguagem de programação ciente de energia,
-  que seja capaz de detectar quando os componentes estão ociosos para
-  colocá-los em modo de espera (standby mode) automaticamente, sem a
-  intervenção do programador.
-%
-\item Flexível:
-  O hardware deve prever conexões para uma variedade de sensores e
-  transceptores de rádio frequência.
-  Em particular, os módulos de rádio mais populares devem ser todos acopláveis
-  externamente ao hardware.
-  O software deve ser modular, de maneira que somente os drivers dos
-  dispositivos de interesse sejam compilados junto com as aplicações.
-%
-\item Barato:
-  O hardware deve usar microcontroladores e módulos "de platereira" que sejam
-  encontrados com facilidade no mercado brasileiro para compras em pequenas
-  quantidades e a custo baixo.
-  O plataforma de software deve ser toda baseada em software livre.
-%
-\end{itemize}
-
-Como principais desafios, o hardware deve possuir mecanismos flexíveis que
-permitam desabilitar periféricos via software e, principalmente, a linguagem de
-programação deve oferecer mecanismos automáticos para colocar o hardware em
-modo de espera.
-
-\begin{comment}
-O enfoque principal se dá no baixo consumo energético, mas a flexibilidade e
-baixo custo são fundamentais para promover uma maior adoção da plataforma,
-principalmente no contexto de pesquisa em IoT.
-\end{comment}
-
-\subsection{ Objetivo (Em Inglês): }
-
-%(Somente texto até 4000 caracteres, podendo utilizar recursos de copiar e colar)
-
-\section{ Abstract }
-
-\subsection{ Abstract (in portuguese): }
-
-%(Text limited to 6000 characters) characters left
+\subsection{Resumo}
 
 De acordo com a Agência Internacional de Energia (AIE)~\cite{iea.data}, o
 número de dispositivos conectados deve atingir 50 bilhões até 2020 com a
@@ -113,43 +60,201 @@ transmitindo ou processando dados.
 Em particular, o modo de espera é responsável por aproximadamente 10--15\% do
 consumo residencial.
 Também estima-se que as emissões de $CO_2$ relacionadas ao modo de espera
-mundialmente é equivalente ao de 1 milhões de carros.
+mundiais seja equivalente às de 1 milhão de carros.
 
-Os efeitos substanciais do consumo em modo de espera, aliados ao crescimento
+Os efeitos alarmantes do consumo em modo de espera, aliados ao crescimento
 estimado da IoT, tornou o modo de espera para dispositivos conectados um dos
 seis pilares do \emph{Plano de Ação para Eficiência Energética do G20}%
 \footnote{G20's Energy Efficiency Action Plan: \url{https://www.iea-4e.org/projects/g20}}.
 No entanto, o uso efetivo do modo de espera requer grandes esforços de software
 e hardware para detectar períodos de inatividade nos dispositivos, identificar
-periféricos que devem permanecer ligados, e aplicar os modo mais econômico
+periféricos que devem permanecer ligados, e aplicar os modos mais econômicos
 sempre que possível.
 
-Sendo assim, este projeto tem como principal objetivo desenvolver uma
-plataforma de hardware e software de baixo consumo energético para educação e
-pesquisa em Internet das Coisas.
+Este projeto tem como principal objetivo desenvolver uma plataforma de hardware
+e software de baixo consumo de energia para pesquisa e educação em Internet das
+Coisas.
 
-No que diz respeito ao software
+No que diz respeito ao software, iremos adotar a linguagem de programação
+reativa \CEU, a qual estamos desenvolvendo durante os últimos 8 anos, e que tem
+como alvo sistemas embarcados restritos.
+%
+\CEU é baseada no modelo de concorrência síncrono, que troca poder por
+confiabilidade e possui um modelo de tempo mais simples que cobre a maioria dos
+requisitos de aplicações IoT.
+%
+Nesse modelo, todas as reações ao mundo externo são computadas em tempo finito,
+garantindo que as aplicações sempre chegam a um estado ocioso que é suscetível
+ao modo de espera.
+%
+A linguagem já possui suporte recente básico a tratamento de interrupções e
+gerenciamento de energia automático.
+Em testes preliminares, já alcançamos economias entre 20 e 90\% para aplicações
+escritas puramente em \CEU.
 
-Por um lado, as principais plataformas de hardware de baixo consumo para IoT
-são soluções comerciais fechadas e custosas.
-Por outro lado, o crescimento
-Tipicamente são sol
+No que diz respeito ao hardware, os requisitos principais são o baixo custo e
+flexibilidade da plataforma.
+%
+As soluções completas de hardware atuais são acessíveis mas pouco flexíveis,
+pois tipicamente possuem componentes SMD montados na placa.
+Em particular, os módulos de rádio são previamente determinados, criando uma
+barreira para a pesquisa.
+Mesmo que muitas dessas soluções sejam abertas, o custo dos componentes é alto
+para compras em pequenas quantidades e o método de montagem não é adequado para
+experimentação.
+%
+A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
+microcontroladores e módulos "de platereira" no mercado brasileiro.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% b) Dados do proponente e equipe;
+% d) Instituição(ões) participante(s);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Equipe e Instituições}
+
+\begin{itemize}
+    \item Francisco Figueiredo Goytacaz Sant'Anna
+    \begin{itemize}
+        \item \textbf{Função:} \\
+              Pesquisador Proponente e Coordenador
+        \item \textbf{E-mail:} \\
+              \url{francisco@ime.uerj.br}
+        \item \textbf{Lattes:} \\
+              {\scriptsize{\url{http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4736349P3}}}
+        \item \textbf{Instituição:}                                 \\
+              Departamento de Informática e Ciências da Computação, \\
+              Instituto de Matemática e Estatística (IME),          \\
+              Universidade Estadual do Rio de Janeiro (UERJ)
+    \end{itemize}
+
+    TODO
+    \begin{comment}
+    \item Fabio Mascarenhas de Queiroz
+    \begin{itemize}
+        \item Função: Professor Colaborador;
+        \item Lattes: http://lattes.cnpq.br/2273723591083358; 
+        \item Instituição: Universidade Federal do Rio de Janeiro
+    \end{itemize}
+
+    \item Gilney de Azevedo Alves Junior
+    \begin{itemize}
+        \item Função: Colaborador (Aluno de Graduação);
+        \item Lattes: http://lattes.cnpq.br/8502686732277287; 
+        \item Instituição: Universidade Federal do Rio Grande do Norte
+    \end{itemize}
+    \end{comment}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% c) Área(s) do conhecimento predominante(s);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Áreas de Conhecimento}
+
+\begin{itemize}
+\item Área predominante:
+    \begin{itemize}
+    \item Ciência da Computação --- Sistemas de Computação     
+    \end{itemize}
+\item Áreas relacionadas:
+    \begin{itemize}
+    \item Engenharia de Telecomunicações --- Sistemas de Telecomunicações
+    \item Ciência da Computação --- Linguagens de Programação
+    \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% e) Objetivos geral e específicos;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ Objetivos }
+
+\section{ Objetivos Gerais }
+
+Criar uma plataforma de hardware e software para pesquisa e educação em
+Internet das Coisas de baixo consumo de energia, flexível e barata.
+
+\section{ Objetivos Específicos }
+
+A plataforma deve alcançar os seguintes objetivos:
+
+\begin{description}
+%
+\item[Baixo Consumo de Energia:]
+  O hardware deve possuir modos de economia de energia para todos os seus
+  componentes, sejam eles o microcontrolador, sensores, ou módulos de rádio.
+  O software será baseado em uma linguagem de programação ciente de energia,
+  que seja capaz de detectar quando os componentes estão ociosos para
+  colocá-los em modo de espera (standby mode) automaticamente, sem a
+  intervenção do programador.
+%
+\item[Flexível:]
+  O hardware deve prever conexões para uma variedade de sensores e
+  transceptores de rádio frequência.
+  Em particular, os módulos de rádio mais populares devem ser todos acopláveis
+  externamente ao hardware.
+  O software deve ser modular, de maneira que somente os drivers dos
+  dispositivos de interesse sejam compilados junto com as aplicações.
+%
+\item[Barato:]
+  O hardware deve usar microcontroladores e módulos "de platereira" que sejam
+  encontrados com facilidade no mercado brasileiro para compras em pequenas
+  quantidades e a custo baixo.
+  O plataforma de software deve ser toda baseada em software livre.
+%
+\end{description}
+
+Como principais desafios, o hardware deve possuir mecanismos flexíveis que
+permitam desabilitar periféricos via software e, principalmente, a linguagem de
+programação deve oferecer mecanismos automáticos para colocar o hardware em
+modo de espera, sem esforços extras por parte do programador.
+
+\begin{comment}
+O enfoque principal se dá no baixo consumo de energia, mas a flexibilidade e
+baixo custo são fundamentais para promover uma maior adoção da plataforma,
+principalmente no contexto de pesquisa em IoT.
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% f) Metodologia proposta;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Metodologia}
+
+...
+%
+No entanto, a plataforma de software como um todo requer uma pesquisa mais
+extensa, que deve abranger os seguintes requisitos:
+%
+\begin{itemize}
+\item Avaliação qualitativa da usabilidade de \CEU.
+\item Avaliação quantitativa do uso de recursos de \CEU, tais como memória,
+      desempenho e, principalmente, consumo de energia.
+\item Desenvolvimento de aplicações representativas de IoT que usem comunicação
+      por rádio extensivamente.
+\item Cobertura de drivers para periféricos e módulos de rádio diversos.
+\end{itemize}
+
+...
+%
+A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
+microcontroladores e módulos "de platereira" no mercado brasileiro com os
+seguintes requisitos:
+%
+\begin{itemize}
+\item Os módulos de rádio mais populares devem ser acopláveis externamente ao
+      hardware para experimentação de diversas propriedades de RF, tais como
+      técnica de modulação, alcance, velocidade, etc.
+\item O hardware deve possuir mecanismos que permitam desabilitar sensores e
+      periféricos via software para maximizar a economia de energia.
+\item O hardware deve ser compatível e bibliotecas
+\end{itemize}
 
 
-closed solutions
-
-expensive
-
-soldered
-
-
- que faça uso do modo de espera de maneira eficiente.
-
- com
-as seguintes características:
-
-
-Nosso trabalho com Céu e suporte automático
+ e, principalmente, a linguagem de
+programação deve oferecer mecanismos automáticos para colocar o hardware em
+modo de espera.
 
 \begin{comment}
 
@@ -172,26 +277,6 @@ Problemas com hardware para pesquisa científica
 
 %(Text limited to 6000 characters) characters left 
 
-\section{ Scientific Knowledge field: }
-
-\begin{itemize}
-\item Predominant area:
-    \begin{itemize}
-    \item Sistemas de Computação 	
-    \end{itemize}
-\item Related Areas: 	
-    \begin{itemize}
-    \item Sistemas de Telecomunicações
-    \item Linguagens de Programação
-    \end{itemize}
-\end{itemize}
-
-a) Identificação do projeto, incluindo título, palavras-chave e resumo;
-b) Dados do proponente e equipe;
-c) Área(s) do conhecimento predominante(s);
-d) Instituição(ões) participante(s);
-e) Objetivos geral e específicos;
-f) Metodologia proposta;
 g) Etapas de execução do projeto com respectivo cronograma de atividades;
 h) Produtos esperados como resultado da execução do projeto, com previsão de cronograma
 de entregas anuais;
@@ -205,431 +290,6 @@ projeto;
 n) Orçamento detalhado.
 
 - Até 36 meses
-
-Identificação da proposta;
-Qualificação do principal problema a ser abordado;
-Objetivos e metas a serem alcançados;
-Indicadores de acompanhamento;
-Metodologia a ser empregada;
-Principais contribuições científicas, tecnológicas ou de inovação da proposta;
-Orçamento detalhado;
-Cronograma de atividades;
-Identificação de todos os participantes do projeto:
-Grau de interesse e comprometimento de empresas com o escopo da proposta,
-quando for o caso;
-Indicação de colaborações ou parcerias já estabelecidas com outros centros de
-pesquisa na área;
-Disponibilidade efetiva de infraestrutura e de apoio técnico para o desenvolvimento
-do projeto;
-Estimativa dos recursos financeiros de outras fontes que serão aportados pelos
-eventuais Agentes Públicos e Privados parceiros e
-No caso das solicitações de bolsas de IC e/ou AT deverá ser apresentado,
-juntamente com o projeto de pesquisa, um plano das atividades a serem
-desenvolvidas pelo bolsista. Não é necessário indicar o nome do candidato no
-momento da submissão da proposta, apenas descrever o perfil desejado para o
-futuro bolsista.
-
-
-
-\section{Identificação da Proposta}
-\label{sec:ident}
-
-
-\begin{itemize}
-	\item {\bf Título:} Recuperação Automática de Erros para Parsers Baseados
-em Gramáticas de Expressões de Parsing;
-  \item {\bf Palavras-chave:} gramáticas de expressões de parsing (PEGs),
-   parsing, recuperação de erros
-	\item {\bf Áreas do Conhecimento:} Ciência da Computação --- Linguagens Formais e Autômatos / Linguagens de Programação;
-	\item {\bf Instituição:} Escola de Ciências e Tecnologia (ECT) / UFRN; 
-\end{itemize}
-
-
-\section{Equipe}
-
-\begin{itemize}
-	\item Sérgio Queiroz de Medeiros
-	\begin{itemize}
-    \item Função: Pesquisador Proponente e Coordenador;
-		\item Lattes: http://lattes.cnpq.br/0310395336626784; 
-	  \item Instituição: Universidade Federal do Rio Grande do Norte 
-	\end{itemize}
-
-  \item Fabio Mascarenhas de Queiroz
-	\begin{itemize}
-    \item Função: Professor Colaborador;
-		\item Lattes: http://lattes.cnpq.br/2273723591083358; 
-	  \item Instituição: Universidade Federal do Rio de Janeiro
-	\end{itemize}
-
-  \item Gilney de Azevedo Alves Junior
-	\begin{itemize}
-    \item Função: Colaborador (Aluno de Graduação);
-		\item Lattes: http://lattes.cnpq.br/8502686732277287; 
-	  \item Instituição: Universidade Federal do Rio Grande do Norte
-	\end{itemize}
-\end{itemize}
-
-
-Também podem fazer parte da equipe do projeto estudantes de mestrado vinculados
-ao Programa de Pós-Graduação em Engenharia Software (PPGSW) da UFRN, 
-do qual o proponente do projeto é membro permamente.
-
-
-\section{Introdução}
-\label{sec:intro}
-
-
-Ambientes de Desenvolvimento Integrado (\textit{Integrated Development Environments} - IDEs)
-são uma ferramenta essencial no processo de desenvolvimento de software atual.
-Para que uma IDE possa oferecer funcionalidades como refatoração automática 
-e \textit{coding complete}, o parser associado a ela deve construir uma Árvore de
-Sintaxe Abstrata (\textit{Abstract Syntax Tree} - AST) mesmo para programas sintaticamente
-inválidos. Tal parser deve ter portanto a capacidade de se recuperar de erros sintáticos
-e continuar processando um programa sintaticamente inválido, de modo a produzir uma AST
-válida e que captura uma boa quantidade de informação desse programa.
-
-Gramáticas de Expressões de Parsing (\textit{Parsing Expression Grammars} - 
-PEGs)~\cite{ford2002thesis,ford2004peg}
-são um formalismo que permite a geração de parsers descendentes (\textit{top-down})
-recursivos a partir de uma descrição formal que é visualmente semelhante à descrição
-de uma Gramática Livre de Contexto (GLC)~\cite{hopcroft:automata}. PEGs possuem um
-operador de escolha ordenada que não permite expressar ambiguidade, o que é desejável quando
-descrevemos uma linguagem para uma máquina (e.g., a sintaxe de uma linguagem de programação).
-Devido a esse operador de escolha ordenada, o parser gerado a partir da descrição
-de uma PEG possui uma forma restrita de retrocesso (\textit{backtracking}).
-
-Falhas rotuladas são uma extensão conservativa de PEGs que permite
-adicionar um mecanismo de recuperação de erros para parsers baseados
-em PEGs~\cite{maidl2016peglabel}. Cada falha rotulada pode ser associada
-a uma expressão de recuperação, que deve consumir a entrada após uma falha
-até que seja possível reconhecer uma construção sintaticamente válida do programa.
-
-O uso de falhas rotuladas exige que a gramática seja anotada para indicar
-quando uma determinada falha deve ser lançada. Realizar manualmente essa
-anotação da gramática demanda tempo do desenvolvedor, e pode ser uma
-tarefa difícil para desenvolvedores menos experientes.
-
-Após anotar a gramática com falhas rotuladas, ainda é necessário
-associar uma expressão de recuperação a cada falha. Uma boa expressão
-de recuperação deve ser capaz de sincronizar o parser com a entrada
-após um erro sem descartar muita informação da entrada. Dessa forma,
-é possível gerar uma AST rica, que captura a maior parte da informação,
-para programas sintaticamente inválidos.
- 
-Em virtude dessas dificuldades, muitos parsers baseados em PEGs não
-possuem um mecanismo de recuperação de erros, ou não possuem um mecanismo
-de recuperação robusto (i.e., que produz uma AST rica), o que torna inviável
-o uso desses parsers em IDEs. 
-
-
-\section{Objetivos Geral e Específicos}
-\label{sec:obj}
-
-
-Levando em consideração os problemas descritos anteriormente,
-nossos objetivos gerais são:
-\begin{enumerate}
-	\item projetar e implementar um algoritmo para anotar automaticamente
-  uma gramática PEG com falhas rotuladas;
-	\item projetar e implementar uma abordagem para associar automaticamente
-  expressões de recuperação a falhas rotuladas, de modo que um
-  parser baseado em PEGs produza ASTs ricas para entradas sintaticamente
-  inválidas.
-\end{enumerate}
-
-
-Para alcançar o primeiro objetivo, teríamos que cumprir os seguintes
-objetivos específicos:
-	\begin{enumerate}
-		\item Propor um algoritmo para inserir falhas rotuladas
-    automaticamente em uma PEG;
-    \item Implementar o algoritmo proposto;
-    \item Aplicar o algoritmo a PEGs que descrevem linguagens de
-    programação e avaliar a saída dos parsers resultantes para entradas
-    sintaticamente válidas e inválidas.
-	\end{enumerate}
- 
-
-Para alcançar o segundo objetivo geral, teríamos que cumprir os seguintes
-objetivos específicos:
-	\begin{enumerate}
-		\item Propor uma abordagem para associar automaticamente expressões
-    de recuperação a falhas rotuladas;
-    \item Implementar a abordagem proposta;
-    \item Aplicar a abordagem para diferentes parsers baseados em PEGs
-    e avaliar a qualidade da AST gerada para programas sintaticamente
-    inválidos.
-	\end{enumerate}
- 
-
-\section{Metodologia}
-\label{sec:met}
-
-
-Para alcançar o primeiro objetivo geral, devemos tomar como
-base da nossa pesquisa o algoritmo apresentado em~\cite{medeiros2018sblp},
-que propõe uma abordagem semiautomática para inserir falhas
-rotuladas em uma PEG. Pretendemos solucionar o problema
-da inserção indevida de falhas rotuladas, que leva o
-parser resultante a rejeitar entradas sintaticamente válidas.
-
-Após definirmos um algoritmo que adiciona corretamente falhas
-rotuladas a uma gramática, iremos implementá-lo em
-um gerador de parsers baseado em PEGs. Com isso, vamos
-obter uma ferramenta que aceita como entrada a descrição de uma
-PEG, sem falhas rotuladas, e produz como resultado uma PEG
-anotada, com falhas rotuladas.
- 
-Iremos comparar então as PEGs anotadas automaticamente através
-dessa ferramenta com PEG anotadas manualmente e analisar o impacto das
-possíveis diferenças entre as gramáticas. Pretendemos inicialmente refazer a análise
-feita em~\cite{medeiros2018sblp} para a linguagem de programação
-Titan e em seguida realizar essa comparação com os parsers de outras
-linguagens de programação, como C e Java. Com base nos resultados
-obtidos, iremos ajustar o algoritmo e refazer os experimentos. 
-
-Para alcançar o segundo objetivo geral, iremos tomar como
-base estratégias de recuperação de erros sintáticos usadas
-por geradores de parsers populares como ANTLR~\cite{parr2013antlr,parr2014antlr}
-e Coco/R~\cite{cocomanual}, bem como estratégias descritas
-na literatura~\cite{aho1972tptc,wirth1978algorithms,grune2010ptp}.
-
-Após definir uma estratégia de recuperação de erros
-automática adequada para PEGs com falhas rotuladas,
-implementaremos uma ferramenta que usa essa estratégia.
-Tal ferramenta deve receber como entrada a descrição
-de uma PEG com falhas rotuladas e produzir como saída
-uma PEG onde cada falha rotulada está associada a uma
-expressão de recuperação. 
-
-Devemos notar que a entrada desta segunda ferramenta é a
-saída da primeira ferramenta, relacionada ao primeiro objetivo
-geral. Assim, geraremos parsers com recuperação de erros para
-as linguagens de programação que utilizarmos nos experimentos
-associados ao primeiro objetivo geral.
-
-Após obtermos parsers baseados em PEGs com recuperação de erros,
-iremos avaliar a qualidade das ASTs geradas por esses parsers
-para programas sintaticamente inválidos.
-Essa avaliação da qualidade da recuperação de erros se
-baseará na metodologia usada em trabalhos relacionados,
-tais como~\cite{dejonge2012natural} e~\cite{corchuelo2002repair}.
-
-Devemos também comparar a AST gerada pelas ferramentas
-que desenvolveremos com as ASTs geradas por outros geradores
-de parsers, tais como ANTLR.
-
-
-
-\section{Cronograma de Atividades}
-\label{sec:crono}
-
-A Tabela~\ref{tab:cronograma} apresenta um cronograma semestral com as
-principais atividades do projeto. Usamos nessa tabela a seguinte legenda
-para as atividades:
-
-\begin{itemize}
-	\item A1: Projetar algoritmo para inserir falhas rotuladas em uma PEG;
-	\item A2: Implementar o algoritmo da atividade A1;
-	\item A3: Desenvolver parsers baseados em PEGs para linguagens de programação;
-	\item A4: Aplicar o algoritmo da atividade A1 para parsers de linguagens de programação
-  e avaliar o resultado;
-	\item A5: Aprimorar a inserção de falhas automáticas e refazer a avaliação A4;
-	\item A6: Definir uma abordagem para associar automaticamente expressões
-  de recuperação a falhas rotuladas;
-  \item A7: Implementar a abordagem definida em A6;
-	\item A8: Aplicar a abordagem da atividade A6 para parsers de linguagens
-  de programação e avaliar o resultado;  
-	\item A9: Refinar a abordagem da atividade A6 e refazer a avaliação A8.
-	\item A10: Elaboração de artigos científicos.
-\end{itemize}
-
-\begin{comment}
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|c|c|c|c|c|c|} \hline
-\diagbox{Atividade}{Semestre}     &  1  &  2  &  3  &  4  &  5  &  6   \\ \hline
-                    A1            &  X  &  X  &     &     &     &      \\ \hline
-                    A2            &  X  &  X  &     &     &     &      \\ \hline
-                    A3            &  X  &  X  &  X  &     &     &      \\ \hline
-                    A4            &     &  X  &  X  &     &     &      \\ \hline 
-                    A5            &     &     &     &  X  &  X  &      \\ \hline
-                    A6            &     &     &  X  &  X  &     &      \\ \hline
-                    A7            &     &     &  X  &  X  &     &      \\ \hline
-                    A8            &     &     &  X  &  X  &     &      \\ \hline
-                    A9            &     &     &     &     &  X  &  X   \\ \hline
-                    A10           &     &  X  &  X  &  X  &  X  &  X   \\ \hline
-\end{tabular}
-\caption{Cronograma de Atividades}
-\label{tab:cronograma}
-\end{table}
-\end{comment}
-
-\section{Resultados Esperados}
-\label{sec:res}
-
-Ao final do primeiro ano do projeto os resultados esperados são:
-\begin{enumerate}
-	\item Um algoritmo que anote um gramática PEG com falhas rotuladas;
-	\item Incorporação do algoritmo anterior a um gerador de parsers baseado
-  em PEGs e disponibilização do mesmo para a comunidade;
-	\item Um artigo científico com os resultados parciais da pesquisa.
-\end{enumerate}
-
-Ao final do segundo ano, o projeto deverá produzir os seguintes resultados:
-\begin{enumerate}
-	\item Uma abordagem para associar automaticamente expressões
-  de recuperação a falhas rotuladas;
-	\item Uma ferramenta, disponível para a comunidade, que a partir da descrição formal
-  de uma PEG produz um parser com um mecanismo de recuperação de erros sintáticos razoável;
-  \item Um artigo científico com os resultados parciais da pesquisa.
-\end{enumerate}
-
-Ao final do terceiro ano, devemos ter os seguintes resultados:
-\begin{enumerate}
-	\item Uma ferramenta, disponível para a comunidade, que a partir da descrição formal
-  de uma PEG produz um parser com um mecanismo de recuperação de erros sintáticos robusto;
-  \item Facilidade de usar parsers baseados em PEGs em IDEs;
-  \item Submissão de um artigo para um periódico científico.
-\end{enumerate}
-
-
-
-\section{Contribuições}
-\label{sec:contrib}
-
-A principal contribuição técnico-científica do trabalho será
-a construção de uma ferramenta que permitirá obter automaticamente,
-a partir de uma gramática PEG, um parser com um mecanismo robusto de
-recuperação de erros. Essa contribuição tornará viável o uso de parsers
-baseados em PEGs em IDEs. Além dessa contribuição principal, há outras
-que discutimos a seguir.
-
-O algoritmo de inserção automática de falhas rotuladas, além de ser
-útil para a recuperação automática de erros, vai facilitar a tarefa
-de reportar os erros sintáticos para um usuário. Após uma gramática PEG
-ser anotada com falhas rotuladas, para que o parser correspondente produza
-boas mensagens de erro será necessário apenas associar uma mensagem de erro
-a cada falha rotulada.
-
-Uma outra contribuição da pesquisa é a aplicação dos resultados teóricos,
-através do desenvolvimento de ferramentas que tornem fácil a obtenção de
-parsers PEGs com recuperação automática de erros. Além dessas ferramentas,
-a pesquisa deve produzir parsers robustos para as linguagens de programação
-que serão utilizadas nos estudos de caso. 
-
-Os softwares relacionados à pesquisa possuem potencial de inovação na área
-de parsing/compiladores e podem vir a ser registrados.
- 
-Por fim, os artigos científicos associados à pesquisa devem estimular
-o desenvolvimento de outros geradores de parsers baseados em PEGs
-que suportem a recuperação automática de erros sintáticos.
-
-
-\section{Histórico de Pesquisa}
-\label{sec:hist}
-
-O proponente deste projeto e o pesquisador Fabio Mascarenhas,
-membro da equipe do projeto, atuam na pesquisa relacionada
-a PEGs desde 2008. Inicialmente, estudaram a relação entre PEGs
-e outros formalismos usados para descrever linguagens.
-Entre os artigos relacionados a essa pesquisa destacamos 
-\emph{From regexes to parsing expression grammars}~\cite{medeiros2014regexes},
-que discute a correspondência entre expressões regulares, incluindo
-extensões comumente usadas por ferramentas de casamento de padrões,
-e PEGs; e o artigo \emph{On the relation between context-free grammars
-and parsing expression grammars}~\cite{mascarenhas2014cfgpeg}, que
-discute a correspondência entre GLCs e PEGs.
-
-Em seguida, pesquisaram a formalização de extensões
-de PEGs para dar suporte ao casamento de listas~\cite{mascarenhas2011list}
-e ao uso de regras recursivas à esquerda~\cite{medeiros2014left}.
-A pesquisa relacionada ao uso de regras recursivas à esquerda
-em PEGs influenciou a implementação de vários parsers,
-tais como IronMeta~\cite{ironmeta} e LPegLJ~\cite{lpeglj}.
-
-O projeto atual está relacionado à pesquisa que busca
-explorar extensões de PEGs que oferecem maior suporte ao relato
-e à recuperação de erros. Como resultado
-parcial dessa pesquisa, temos a publicação de artigos
-científicos~\cite{maidl2016peglabel,medeiros2016sac,medeiros2018sblp},
-o desenvolvimento da ferramenta LPegLabel~\cite{lpeglabel},
-que possui mais de 5000 downloads, e dois projetos
-relacionados ao Google Summer of Code~\cite{summer2016,summer2017}.
-
-As pesquisas mencionadas anteriormente também contaram com a colaboração
-de pesquisadores da PUC-Rio e da PUC-PR, que podem eventualmente também
-coloborarem com este projeto.
- 
-%Entre outras atividades do proponente relacionadas à pesquisa
-%listamos as seguintes:
-%\begin{itemize}
-%	\item Membro do Comitê de Programa do Simpósio Brasileiro de Linguagens de Programação (2014 a 2018)
-%  \item Revisor do Periódico Fundamenta Informaticae (2015)
-%  \item Revisor do Periódico Science of Computer Programming (2017 e 2018)
-%\end{itemize}
-
-
-\section{Infraestrutura}
-\label{sec:infra}
-
-As instituições envolvidas no projeto possuem uma
-infraestrutura adequada para a execução do mesmo.
-%que não demanda uma infraestrutura muito elaborada
-%para a sua execução.
-
-A Escola de Ciências e Tecnologia (ECT) da UFRN possui
-laboratórios e salas para uso exclusivo de professores
-e estudantes que realizam pesquisa.
-
-Além disso, conta com uma equipe própria de TI que pode
-dar suporte ao desenvolvimento do projeto.
-
-
-
-\section{Orçamento Detalhado}
-\label{sec:orcamento}
-
-A tabela~\ref{tab:custeio} apresenta o orçamento detalhado do projeto para
-cada ano. O orçamento total do projeto é de R\$ 29.980.
-
-
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|l|l|l|} \hline
-Item                                           &   Ano 1    &   Ano 2       &   Ano 3     \\ \hline
-Computador                                     &  R\$ 5.000  &  R\$      0  &  R\$   0    \\ \hline
-Material Bibliográfico                         &  R\$ 1.000  &  R\$      0  &  R\$   0    \\ \hline
-Material de Consumo                            &  R\$   200  &  R\$    200  &  R\$ 200    \\ \hline
-Passagens Nacionais                            &  R\$ 1.500  &  R\$ 1.500   &  R\$ 1.500  \\ \hline
-Passagens Internacionais                       &  R\$     0  &  R\$  4.000  &  R\$ 4000   \\ \hline
-Diárias Nacionais                              &  R\$   960  &  R\$    960  &  R\$  960   \\ \hline
-Diárias Internacionais                         &  R\$     0  &  R\$  4.000  &  R\$ 4000   \\ \hline
-{\bf Total}                                    &  R\$ 8.660  &  R\$ 10.660  &  R\$ 10.660  \\ \hline 
-\end{tabular}
-\caption{Itens de Custeio}
-\label{tab:custeio}
-\end{table}
-
-
-O orçamento prevê 3 viagens nacionais durante o projeto,
-que incluem viagens para realizar visitas técnicas e
-para participar de congressos nacionais. Para cada
-viagem foi estimado um custo de R\$ 1.500 para as
-passagens e de R\$ 960 para as diárias.
-
-O orçamento também prevê 2 viagens internacionais
-para eventos científicos. Para cada viagem foi
-estimado um custo de R\$ 4.000 para a passagem
-e de R\$ 4.000 para as diárias.
-
-Durante o primeiro ano do projeto a UFRN custeará o pagamento
-de uma bolsa de Iniciação Científica (IC), que será alocada
-para o aluno Gilney. Esperamos que essa bolsa seja renovada
-para o segundo ano do projeto.
-
-
 
 \bibliographystyle{plain}
 \bibliography{my,other,serra} 

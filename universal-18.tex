@@ -76,8 +76,8 @@ e software de baixo consumo de energia para pesquisa e educação em Internet da
 Coisas.
 
 No que diz respeito ao software, iremos adotar a linguagem de programação
-reativa \CEU, a qual estamos desenvolvendo durante os últimos 8 anos, e que tem
-como alvo sistemas embarcados restritos.
+reativa \CEU~\cite{ceu.sensys13}, a qual estamos desenvolvendo durante os
+últimos 8 anos, e que tem como alvo sistemas embarcados restritos.
 %
 \CEU é baseada no modelo de concorrência síncrono, que troca poder por
 confiabilidade e possui um modelo de tempo mais simples que cobre a maioria dos
@@ -186,8 +186,8 @@ A plataforma deve alcançar os seguintes objetivos:
   componentes, sejam eles o microcontrolador, sensores, ou módulos de rádio.
   O software será baseado em uma linguagem de programação ciente de energia,
   que seja capaz de detectar quando os componentes estão ociosos para
-  colocá-los em modo de espera (standby mode) automaticamente, sem a
-  intervenção do programador.
+  colocá-los em modo de espera automaticamente, sem a intervenção do
+  programador.
 %
 \item[Flexível:]
   O hardware deve prever conexões para uma variedade de sensores e
@@ -222,39 +222,139 @@ principalmente no contexto de pesquisa em IoT.
 
 \section{Metodologia}
 
-...
+O projeto possui duas linhas de pesquisa, em \emph{software} e em
+\emph{hardware}, que se complementam para oferecer uma plataforma íntegra, mas
+que também são suficientemente independentes para serem desenvolvidas por
+diferentes equipes em simultâneo.
+
+\subsection{Software}
+
+Grande parte da pesquisa em software está fundamentada em trabalhos anteriores
+nossos com a linguagem \CEU~\cite{ceu.sensys13,ceu.tecs17,ceu.lctes18}.
+A linguagem já possui uma implementação estável e foi adotada com sucesso nas
+áreas de redes de sensores sem fio~\cite{ceu.sensys13,ceu.terra},
+jogos~\cite{ceu.mod15} e multimídia~\cite{ceumedia.webmedia16}.
+
+Mais recentemente, pesquisamos como prover tratamento de interrupções e
+gerenciamento automático de modo de espera diretamente na linguagem, já obtendo
+alguns resultados preliminares no contexto de economia de
+energia~\cite{ceu.lctes18.short}.
 %
-No entanto, a plataforma de software como um todo requer uma pesquisa mais
-extensa, que deve abranger os seguintes requisitos:
+No entanto, a plataforma de software proposta neste projeto requer uma pesquisa
+mais extensa, que deve abranger os seguintes requisitos:
 %
-\begin{itemize}
+\begin{enumerate}
 \item Avaliação qualitativa da usabilidade de \CEU.
 \item Avaliação quantitativa do uso de recursos de \CEU, tais como memória,
       desempenho e, principalmente, consumo de energia.
 \item Desenvolvimento de aplicações representativas de IoT que usem comunicação
       por rádio extensivamente.
 \item Cobertura de drivers para periféricos e módulos de rádio diversos.
-\end{itemize}
+\end{enumerate}
 
-...
-%
-A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
-microcontroladores e módulos "de platereira" no mercado brasileiro com os
-seguintes requisitos:
+O coordenador do projeto ficará responsável pelas partes mais críticas da
+pesquisa, tais como o funcionamento da linguagem e drivers para os periféricos
+mais essenciais (item 4).
+
+Uma aluna de mestrado recém ingressa está trabalhando com a avaliação de
+usabilidade da linguagem (item 1).
+Ela irá desenvolver um ambiente de programação educacional que tem como alvo
+alunos no início da graduação em Ciência da Computação.
+A ideia é introduzir a área IoT e sistemas embarcados já no início do curso.
+Nossa hipótese é que o vocabulário especializado de \CEU para lidar com o mundo
+externo (e.g., eventos e concorrência) irá permitir que os alunos desenvolvam
+projetos de IoT simples mas completos.
+
+O desenvolvimento de aplicações IoT completas (item 3) é fundamental para
+validar o projeto como um todo.
+A Internet oferece diversas aplicações de IoT abertas e disponíveis que poderão
+servir como base para as avaliações qualitativas e quantitativas (itens 2 e 3).
+Alunos de iniciação científica e projeto final poderão trabalhar em projetos
+diferentes que servirão para essas avaliações de \CEU.
+
+\subsection{Hardware}
+
+A nossa proposta visa projetar uma solução de hardware flexível e de baixo
+custo baseada em microcontroladores e módulos "de platereira" no mercado
+brasileiro com os seguintes requisitos:
 %
 \begin{itemize}
+\item O microcontrolador deve possuir baixo consumo de energia e oferecer
+      modos de espera programáveis.
 \item Os módulos de rádio mais populares devem ser acopláveis externamente ao
       hardware para experimentação de diversas propriedades de RF, tais como
-      técnica de modulação, alcance, velocidade, etc.
+      técnica de modulação, alcance, velocidade, interoperabilidade, etc.
 \item O hardware deve possuir mecanismos que permitam desabilitar sensores e
       periféricos via software para maximizar a economia de energia.
-\item O hardware deve ser compatível e bibliotecas
 \end{itemize}
 
+Os microcontroladores em placas compatíveis com a plataforma Arduino são os
+mais populares e disponíveis no mercado brasileiro.
+%
+A Figura~\ref{fig.arduinos} indica alguns modelos que podem ser avaliados para
+adoção no projeto (item 1).
+%
+Como exemplo, o modelo \emph{Pro Mini 3.3V} tem tamanho reduzido, baixo consumo
+de energia e custa em torno de R\$15,00.
 
- e, principalmente, a linguagem de
-programação deve oferecer mecanismos automáticos para colocar o hardware em
-modo de espera.
+O levantamento, avaliação e montagem dos módulos de rádio é a etapa mais
+sensível no projeto da plataforma de hardware (item 2).
+%
+A Figura~\ref{fig.rfs} ilustra a diversidade de implementações de módulos RF
+disponíveis, alguns com custo inferior a R\$10,00.
+%
+Idealmente, cada um dos módulos considerados deve ser acoplável e facilmente
+intercambiáveis na nossa plataforma, dado que temos como objetivo a
+flexibilidade para experimentação e pesquisa em IoT.
+%
+Cada módulo poderá ser avaliado e desenvolvido em separado.
+Para isso, iremos propor a exploração desses módulos em projetos da disciplina
+de Software Embarcado em nosso programa de pós graduação.
+
+A plataforma também deve permitir o acoplamento de sensores e outros
+periféricos (item 3).
+%
+Além disso, deve oferecer mecanismos para desligá-los eletricamente por
+software de modo a economizar energia.
+%
+Esses mecanismos podem usar diretamente os pinos do microcontrolador para
+sensores mais simples ou transistores que funcionarão como chaves eletrônicas.
+%
+Esse estudo também pode ser realizado em separado por uma outra equipe.
+
+Os componentes eletrônicos devem possuir pinos para montagem
+\emph{through-hole}, que é a técnica mais flexível e adequada para protótipos
+considerando o contexto de pesquisa.
+%
+Esses componentes também costumam ser mais disponíveis no mercado para compras
+em pequenas quantidades.
+
+É importante salientar que
+não depende de \CEU ou mesmo o desenvolvimento de novos softwares em qq linguagem
+iremos usar periféricos amplamente..
+muitos exemplos prontos
+
+
+
+Osciloscópio 3k
+
+
+ do modo a permitir.
+
+
+
+Inicialmente, não iremos considerar outras tecnologias
+
+
+IMAGEM: arduinos
+IMAGEM: RFs baratos.
+IMAGEM: sensores
+IMAGEM: smt vs loophole
+IMAGEM: prototipo PCB
+
+////
+////
+
 
 \begin{comment}
 

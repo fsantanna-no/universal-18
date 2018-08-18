@@ -6,6 +6,8 @@
 \usepackage{url}
 \usepackage{verbatim}
 \usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 
 \newcommand{\CEU}{\textsc{C\'{e}u}\xspace}
 
@@ -288,6 +290,17 @@ brasileiro com os seguintes requisitos:
       periféricos via software para maximizar a economia de energia.
 \end{itemize}
 
+\begin{figure}
+\begin{minipage}{0.50\textwidth}
+\includegraphics[height=100px]{arduinos}
+\caption{ Modelos de Arduino \label{fig.arduinos} }
+\end{minipage}
+\begin{minipage}{0.50\textwidth}
+\includegraphics[height=100px]{rfs}
+\caption{ Módulos RF \label{fig.rfs} }
+\end{minipage}
+\end{figure}
+
 Os microcontroladores em placas compatíveis com a plataforma Arduino são os
 mais populares e disponíveis no mercado brasileiro.
 %
@@ -322,21 +335,37 @@ sensores mais simples ou transistores que funcionarão como chaves eletrônicas.
 %
 Esse estudo também pode ser realizado em separado por uma outra equipe.
 
+\begin{figure}[b]
+\begin{minipage}{0.50\textwidth}
+\includegraphics[height=100px]{through-hole}
+\caption{ Componentes \emph{Through-Hole} }
+\end{minipage}
+\begin{minipage}{0.50\textwidth}
+\includegraphics[height=100px]{smd}
+\caption{ Componentes \emph{SMD} }
+\end{minipage}
+\label{fig.mount}
+\end{figure}
+
 Os componentes eletrônicos devem possuir pinos para montagem
-\emph{through-hole}, que é a técnica mais flexível e adequada para protótipos
-considerando o contexto de pesquisa.
+\emph{through-hole}, como ilustrado na Figura~\ref{fig.mount}, que é a técnica
+mais flexível e adequada para protótipos considerando o contexto de pesquisa.
 %
 Esses componentes também costumam ser mais disponíveis no mercado para compras
 em pequenas quantidades.
 
-É importante salientar que
-não depende de \CEU ou mesmo o desenvolvimento de novos softwares em qq linguagem
-iremos usar periféricos amplamente..
-muitos exemplos prontos
-
-
+É importante destacar que o desenvolvimento do hardware não depende da frente
+de pesquisa em software em \CEU, e tampouco depende do desenvolvimento de
+softwares complexos.
+Como iremos utilizar hardware de commodity, já existe oferta suficiente de
+bibliotecas e aplicações open-source para testes.
+%
+Apenas para a avaliação de consumo de energia as duas frentes deverão ser
+necessariamente integradas.
 
 Osciloscópio 3k
+
+Serrapilheira
 
 
  do modo a permitir.
@@ -346,10 +375,6 @@ Osciloscópio 3k
 Inicialmente, não iremos considerar outras tecnologias
 
 
-IMAGEM: arduinos
-IMAGEM: RFs baratos.
-IMAGEM: sensores
-IMAGEM: smt vs loophole
 IMAGEM: prototipo PCB
 
 ////

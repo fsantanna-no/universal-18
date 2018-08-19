@@ -7,7 +7,6 @@
 \usepackage{verbatim}
 \usepackage{xspace}
 \usepackage{graphicx}
-\usepackage{wrapfig}
 
 \newcommand{\CEU}{\textsc{C\'{e}u}\xspace}
 
@@ -106,7 +105,7 @@ para compras em pequenas quantidades e o método de montagem não é adequado pa
 experimentação.
 %
 A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
-microcontroladores e módulos "de platereira" no mercado brasileiro.
+microcontroladores e módulos ``de platereira'' no mercado brasileiro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % b) Dados do proponente e equipe;
@@ -124,9 +123,9 @@ microcontroladores e módulos "de platereira" no mercado brasileiro.
               \url{francisco@ime.uerj.br}
         \item \textbf{Lattes:} \\
               {\scriptsize{\url{http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4736349P3}}}
-        \item \textbf{Instituição:}                                 \\
-              Departamento de Informática e Ciências da Computação, \\
-              Instituto de Matemática e Estatística (IME),          \\
+        \item \textbf{Instituição:}                                     \\
+              Departamento de Informática e Ciências da Computação      \\
+              Programa de Pós-Graduação em Engenharia Eletrônica (PEL)  \\
               Universidade Estadual do Rio de Janeiro (UERJ)
     \end{itemize}
 
@@ -161,7 +160,7 @@ microcontroladores e módulos "de platereira" no mercado brasileiro.
     \end{itemize}
 \item Áreas relacionadas:
     \begin{itemize}
-    \item Engenharia de Telecomunicações --- Sistemas de Telecomunicações
+    %\item Engenharia de Telecomunicações --- Sistemas de Telecomunicações
     \item Ciência da Computação --- Linguagens de Programação
     \end{itemize}
 \end{itemize}
@@ -199,8 +198,8 @@ A plataforma deve alcançar os seguintes objetivos:
   O software deve ser modular, de maneira que somente os drivers dos
   dispositivos de interesse sejam compilados junto com as aplicações.
 %
-\item[Barato:]
-  O hardware deve usar microcontroladores e módulos "de platereira" que sejam
+\item[Barata:]
+  O hardware deve usar microcontroladores e módulos ``de platereira'' que sejam
   encontrados com facilidade no mercado brasileiro para compras em pequenas
   quantidades e a custo baixo.
   O plataforma de software deve ser toda baseada em software livre.
@@ -277,7 +276,7 @@ diferentes que servirão para essas avaliações de \CEU.
 \subsection{Hardware}
 
 A nossa proposta visa projetar uma solução de hardware flexível e de baixo
-custo baseada em microcontroladores e módulos "de platereira" no mercado
+custo baseada em microcontroladores e módulos ``de platereira'' no mercado
 brasileiro com os seguintes requisitos:
 %
 \begin{itemize}
@@ -335,74 +334,105 @@ sensores mais simples ou transistores que funcionarão como chaves eletrônicas.
 %
 Esse estudo também pode ser realizado em separado por uma outra equipe.
 
-\begin{figure}[b]
+\begin{figure}
 \begin{minipage}{0.50\textwidth}
 \includegraphics[height=100px]{through-hole}
-\caption{ Componentes \emph{Through-Hole} }
 \end{minipage}
 \begin{minipage}{0.50\textwidth}
 \includegraphics[height=100px]{smd}
-\caption{ Componentes \emph{SMD} }
 \end{minipage}
-\label{fig.mount}
+\caption{ Componentes \emph{Through-Hole} e \emph{Surface-Mount}.
+    \label{fig.mount}
+}
 \end{figure}
 
 Os componentes eletrônicos devem possuir pinos para montagem
 \emph{through-hole}, como ilustrado na Figura~\ref{fig.mount}, que é a técnica
 mais flexível e adequada para protótipos considerando o contexto de pesquisa.
 %
-Esses componentes também costumam ser mais disponíveis no mercado para compras
-em pequenas quantidades.
+Esses componentes também são mais disponíveis no mercado para compras em
+pequenas quantidades.
+%
+Ao fim do projeto, desejamos obter um protótipo de tamanho similar aos da
+Figura~\ref{fig.protos}.
+
+\begin{figure}
+\begin{minipage}{0.50\textwidth}
+\includegraphics[height=75px]{proto-01}
+\end{minipage}
+\begin{minipage}{0.50\textwidth}
+\includegraphics[height=150px]{proto-03}
+\end{minipage}
+\caption{ Protótipos de dispositivos IoT. \label{fig.protos} }
+\end{figure}
 
 É importante destacar que o desenvolvimento do hardware não depende da frente
-de pesquisa em software em \CEU, e tampouco depende do desenvolvimento de
+de pesquisa de software em \CEU, e tampouco depende do desenvolvimento de
 softwares complexos.
 Como iremos utilizar hardware de commodity, já existe oferta suficiente de
 bibliotecas e aplicações open-source para testes.
 %
-Apenas para a avaliação de consumo de energia as duas frentes deverão ser
+Apenas para a avaliação de consumo de energia, as duas frentes deverão ser
 necessariamente integradas.
 
-Osciloscópio 3k
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% g) Etapas de execução do projeto com respectivo cronograma de atividades;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Serrapilheira
+\section{ Cronograma de Atividades }
 
+O projeto deve se estender por 2 anos (8 trimestres) conforme retratado na
+Tabela~\ref{fig.crono}.
+%
+O projeto é dividido 4 em fases:
+%
+\begin{description}
+\item[Fase 0:]
+Essa fase compreende o trabalho de infra-estrutura da linguagem \CEU.
+Inclui atividades no início do projeto relativas ao suporte recente de
+interrupções e gerenciamento de energia a ser finalizado.
+Também inclui atividades eventuais de manutenção da linguagem durante todo o
+projeto, mas que não devem ser desconsideradas.
+%
+\item[Fase I:]
+Essa fase se inicia com o levantamento de módulos de RF a serem considerados e
+que em seguida farão parte de plataforma de hardware.
+Também inclui o desenvolvimento de drivers em \CEU para os rádios e aplicações
+IoT, que devem ser eficientes em termos de consumo de energia.
+Por fim, essa fase culmina com a redação de um artigo científico com a
+avaliação quantitativa do uso de recursos de \CEU para as aplicações
+desenvolvidas.
+%
+\item[Fase II:]
+Essa fase complementa a Fase I com outros sensores, periféricos, mecanismos de
+economia de energia e também ajustes e acabamentos do protótipo.
+Ao fim do projeto, esperamos ter uma solução completa de IoT de hardware e
+software para um artigo de maior impacto.
+%
+\item[Fase III:]
+Essa fase é relativamente independente das demais e deve se estender por todo o
+período do projeto.
+O objetivo dela é avaliar qualitativamente a usabilidade de \CEU com alunos de
+graduação.
+Ela também vai servir para atrair novos alunos para a área de sistemas
+embarcados e IoT, construir uma comunidade em torno de \CEU, e avaliar o nosso
+protótipo de hardware em momentos tardios do projeto.
+\end{description}
 
- do modo a permitir.
+\begin{figure}[t]
+\includegraphics[width=\textwidth]{crono}
+\caption{ Cronograma de Atividades \label{fig.crono} }
+\end{figure}
 
-
-
-Inicialmente, não iremos considerar outras tecnologias
-
-
-IMAGEM: prototipo PCB
-
-////
-////
-
-
-\begin{comment}
-
-Problemas com hardware para pesquisa científica
-    - flexibilidade é importante
-    - principalmente para o radio
-    - custo para reproduzir
-        - SoC, SMD, prontos/caros/inflexíveis
-    - consumo ainda alto
-        - transistores para desligar sensores
-    - Solução
-        - módulos off-the-shelf de fácil ligacao, jumpers/headers/solda/PCB vs SMD
-        - The main advantages of SMT over the older through-hole technique are: 
-            - https://en.wikipedia.org/wiki/Through-hole_technology
-            - https://en.wikipedia.org/wiki/Surface-mount_technology
-
-\end{comment}
+TODO:
+- Osciloscópio 3k
+- Serrapilheira
+- Falar mais sobre ferramenta da Anny, GSoC
 
 \subsection{ Abstract (in english): }
 
 %(Text limited to 6000 characters) characters left 
 
-g) Etapas de execução do projeto com respectivo cronograma de atividades;
 h) Produtos esperados como resultado da execução do projeto, com previsão de cronograma
 de entregas anuais;
 i) Potencial de impacto dos resultados do ponto de vista técnico-científico, de inovação,

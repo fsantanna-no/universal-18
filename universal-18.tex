@@ -257,9 +257,9 @@ O coordenador do projeto ficará responsável pelas partes mais críticas da
 pesquisa, tais como o funcionamento da linguagem e drivers para os periféricos
 mais essenciais (item 4).
 
-Uma aluna de mestrado recém ingressa está trabalhando com a avaliação de
-usabilidade da linguagem (item 1).
-Ela irá desenvolver um ambiente de programação educacional que tem como alvo
+A mestranda colaboradora está trabalhando com a avaliação de usabilidade da
+linguagem (item 1).
+Ela vem trabalhando em um ambiente de programação educacional que tem como alvo
 alunos no início da graduação em Ciência da Computação.
 A ideia é introduzir a área IoT e sistemas embarcados já no início do curso.
 Nossa hipótese é que o vocabulário especializado de \CEU para lidar com o mundo
@@ -279,7 +279,7 @@ A nossa proposta visa projetar uma solução de hardware flexível e de baixo
 custo baseada em microcontroladores e módulos ``de platereira'' no mercado
 brasileiro com os seguintes requisitos:
 %
-\begin{itemize}
+\begin{enumerate}
 \item O microcontrolador deve possuir baixo consumo de energia e oferecer
       modos de espera programáveis.
 \item Os módulos de rádio mais populares devem ser acopláveis externamente ao
@@ -287,7 +287,7 @@ brasileiro com os seguintes requisitos:
       técnica de modulação, alcance, velocidade, interoperabilidade, etc.
 \item O hardware deve possuir mecanismos que permitam desabilitar sensores e
       periféricos via software para maximizar a economia de energia.
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}
 \begin{minipage}{0.50\textwidth}
@@ -322,6 +322,10 @@ flexibilidade para experimentação e pesquisa em IoT.
 Cada módulo poderá ser avaliado e desenvolvido em separado.
 Para isso, iremos propor a exploração desses módulos em projetos da disciplina
 de Software Embarcado em nosso programa de pós graduação.
+
+O levantamento dos microcontroladores e módulos de RF, a avaliação das
+propriedades de interesse e a prototipagem de um hardware flexível aos diversos
+módulos devem ser tema de uma dissertação de Mestrado.
 
 A plataforma também deve permitir o acoplamento de sensores e outros
 periféricos (item 3).
@@ -395,21 +399,30 @@ Também inclui atividades eventuais de manutenção da linguagem durante todo o
 projeto, mas que não devem ser desconsideradas.
 %
 \item[Fase I:]
-Essa fase se inicia com o levantamento de módulos de RF a serem considerados e
+Essa fase compreende o levantamento de módulos de RF a serem considerados e
 que em seguida farão parte de plataforma de hardware.
-Também inclui o desenvolvimento de drivers em \CEU para os rádios e aplicações
-IoT, que devem ser eficientes em termos de consumo de energia.
-Por fim, essa fase culmina com a redação de um artigo científico com a
-avaliação quantitativa do uso de recursos de \CEU para as aplicações
-desenvolvidas.
+O protótipo já deve acomodar os diferentes módulos de RF para testes de campo.
+Por fim, faremos uma avaliação quantitativa dos módulos considerando diversas
+propriedades, tais como alcance, velocidade e consumo de energia em modo ativo.
+Essa avaliação usará \emph{microbenchmarks} para as diversas propriedades e não
+depende da linguagem \CEU.
 %
 \item[Fase II:]
+Essa fase inclui o desenvolvimento em \CEU de drivers para os rádios e
+aplicações completas de IoT, que devem ser eficientes em termos de consumo de
+energia no modo de espera.
+Faremos uma avaliação quantitativa do uso de recursos de para as aplicações
+desenvolvidas.
+Em particular, esperamos economias de energia significativas pelo gerenciamento
+de energia automático de \CEU.
+%
+\item[Fase III:]
 Essa fase complementa a Fase I com outros sensores, periféricos, mecanismos de
 economia de energia e também ajustes e acabamentos do protótipo.
 Ao fim do projeto, esperamos ter uma solução completa de IoT de hardware e
 software para um artigo de maior impacto.
 %
-\item[Fase III:]
+\item[Fase IV:]
 Essa fase é relativamente independente das demais e deve se estender por todo o
 período do projeto.
 O objetivo dela é avaliar qualitativamente a usabilidade de \CEU com alunos de
@@ -424,6 +437,51 @@ protótipo de hardware em momentos tardios do projeto.
 \caption{ Cronograma de Atividades \label{fig.crono} }
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% h) Produtos esperados como resultado da execução do projeto, com previsão de cronograma de entregas anuais;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ Resultados Esperados }
+
+Ao fim de cada período indicado, esperamos ter os seguintes resultados:
+
+\begin{itemize}
+\item Primeiro Semestre:
+    \begin{enumerate}
+    \item Uma versão de \CEU com suporte a tratamento de interrupções e
+          gerenciamento de energia automático.
+    \item Uma disciplina opcional de IoT preparada para alunos no início
+          da graduação usando o ambiente de programação de \CEU.
+    \end{enumerate}
+\item Segundo Semestre:
+    \begin{enumerate}
+    \item Um protótipo de hardware com suporte a diversos módulos de RF.
+    \item Um artigo com o levantamento e avaliação de módulos de RF com foco em
+          \emph{microbenchmarks} para consumo de energia.
+    \item Um conjunto de drivers em \CEU para módulos de RF cientes de energia.
+    \end{enumerate}
+\item Terceiro Semestre:
+    \begin{enumerate}
+    \item Um artigo com a avaliação quantitativa de \CEU considerando
+          aplicações completas e representativas de IoT.
+    \item Um protótipo de hardware completo com módulos de RF, sensores, etc.
+    \end{enumerate}
+\item Quarto Semestre:
+    \begin{enumerate}
+    \item Um conjunto de drivers em \CEU para sensores e outros periféricos.
+    \item Um artigo com a solução HW/SW completa da nossa plataforma de IoT.
+    \item Um artigo com a avaliação qualitativa de usabilidade de \CEU
+          considerando todo o software desenvolvido durante o projeto e também
+          a nossa experiência com alunos de graduação.
+    \end{enumerate}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% i) Potencial de impacto dos resultados do ponto de vista técnico-científico, de inovação, difusão, sócio-econômico e ambiental;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ Potencial de Impacto }
+
 TODO:
 - Osciloscópio 3k
 - Serrapilheira
@@ -433,10 +491,6 @@ TODO:
 
 %(Text limited to 6000 characters) characters left 
 
-h) Produtos esperados como resultado da execução do projeto, com previsão de cronograma
-de entregas anuais;
-i) Potencial de impacto dos resultados do ponto de vista técnico-científico, de inovação,
-difusão, sócio-econômico e ambiental;
 j) Colaborações ou parcerias já estabelecidas para a execução do projeto;
 k) Perspectivas de colaborações interinstitucionais para a execução do projeto;
 l) Recursos financeiros de outras fontes aprovados para aplicação no projeto;

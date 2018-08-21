@@ -10,7 +10,7 @@
 
 \newcommand{\CEU}{\textsc{C\'{e}u}\xspace}
 
-\title{ Uma Plataforma de Baixo Consumo de Energia, Flexível e Barata para a
+\title{ Uma Plataforma Flexível, Barata e de Baixo Consumo Energético para a
         Internet das Coisas }
 
 \author{PROPONENTE:                                     \\
@@ -18,8 +18,6 @@ Francisco Figueiredo Goytacaz Sant'Anna                 \\
 francisco@ime.uerj.br                                   \\
 \\\\
 INSTITUIÇÃO DE EXECUÇÃO:                                \\
-Departamento de Informática e Ciências da Computação    \\
-Instituto de Matemática e Estatística (IME)             \\
 Universidade Estadual do Rio de Janeiro (UERJ)          \\
 \\\\
 Chamada Universal MCTIC/CNPq 2018 
@@ -39,36 +37,36 @@ Chamada Universal MCTIC/CNPq 2018
 
 \subsection{Título}
 
-Uma Plataforma de Baixo Consumo de Energia, Flexível e Barata para a Internet
+Uma Plataforma Flexível, Barata e de Baixo Consumo Energético para a Internet
 das Coisas
 
 %A Low-Power, Flexible, and Cheap Platform for the Internet of Things
 
 \subsection{Palavras-Chave}
 
-internet das coisas, eficiência energética, linguagem síncrona
+internet das coisas, eficiência energética, linguagem de programação síncrona
 
 %iot, arduino, low power, synchronous language
 
 \subsection{Resumo}
 
 De acordo com a Agência Internacional de Energia (AIE)~\cite{iea.data}, o
-número de dispositivos conectados deve atingir 50 bilhões até 2020 com a
-expansão da Internet das Coisas (IoT).
+número de dispositivos conectados em rede deve atingir 50 bilhões até 2020 com
+a expansão da Internet das Coisas (IoT).
 A maior parte do consumo de energia nesses dispositivos será em
 \emph{modo de espera} (aka \emph{standby mode}), quando eles não estão
-transmitindo ou processando dados.
-Em particular, o modo de espera é responsável por aproximadamente 10--15\% do
+transmitindo ou processando dados ativamente.
+Em particular, o modo de espera é responsável por aproximadamente 10 a 15\% do
 consumo residencial.
-Também estima-se que as emissões de $CO_2$ relacionadas ao modo de espera
-mundiais seja equivalente às de 1 milhão de carros.
+Também estima-se que as emissões globais de $CO_2$ relacionadas ao modo de
+espera seja equivalente às emissões de 1 milhão de carros.
 
-Os efeitos alarmantes do consumo em modo de espera, aliados ao crescimento
-estimado da IoT, tornou o modo de espera para dispositivos conectados um dos
-seis pilares do \emph{Plano de Ação para Eficiência Energética do G20}%
+Os efeitos alarmantes de consumo de energia, aliados ao crescimento estimado da
+IoT, tornou o modo de espera para dispositivos conectados um dos seis pilares
+do \emph{Plano de Ação para Eficiência Energética do G20}%
 \footnote{G20's Energy Efficiency Action Plan: \url{https://www.iea-4e.org/projects/g20}}.
-No entanto, o uso efetivo do modo de espera requer grandes esforços de software
-e hardware para detectar períodos de inatividade nos dispositivos, identificar
+No entanto, o uso efetivo do modo de espera requer grandes esforços de hardware
+e software para detectar períodos de inatividade nos dispositivos, identificar
 periféricos que devem permanecer ligados, e aplicar os modos mais econômicos
 sempre que possível.
 
@@ -78,34 +76,37 @@ Coisas.
 
 No que diz respeito ao software, iremos adotar a linguagem de programação
 reativa \CEU~\cite{ceu.sensys13}, a qual estamos desenvolvendo durante os
-últimos 8 anos, e que tem como alvo sistemas embarcados restritos.
+últimos 8 anos, e que tem como alvo sistemas embarcados e IoT.
 %
 \CEU é baseada no modelo de concorrência síncrono, que troca poder por
 confiabilidade e possui um modelo de tempo mais simples que cobre a maioria dos
 requisitos de aplicações IoT.
 %
 Nesse modelo, todas as reações ao mundo externo são computadas em tempo finito,
-garantindo que as aplicações sempre chegam a um estado ocioso que é suscetível
-ao modo de espera.
+garantindo que as aplicações sempre chegam a um estado ocioso suscetível ao
+modo de espera.
 %
-A linguagem já possui suporte recente básico a tratamento de interrupções e
+A linguagem já possui suporte recente básico ao tratamento de interrupções e
 gerenciamento de energia automático.
 Em testes preliminares, já alcançamos economias entre 20 e 90\% para aplicações
 escritas puramente em \CEU.
 
-No que diz respeito ao hardware, os requisitos principais são o baixo custo e
-flexibilidade da plataforma.
+No que diz respeito ao hardware, iremos adotar microcontroladores e
+transceptores de rádio de baixo consumo de energia.
+Além disso, buscamos como requisitos extras o baixo custo e flexibilidade da
+plataforma para maior adequação ao contexto de pesquisa e educação.
 %
-As soluções completas de hardware atuais são acessíveis mas pouco flexíveis,
-pois tipicamente possuem componentes SMD montados na placa.
+As soluções completas de hardware IoT atuais são acessíveis mas pouco
+flexíveis, pois tipicamente possuem componentes minúsculos já soldados às
+placas.
 Em particular, os módulos de rádio são previamente determinados, criando uma
-barreira para a pesquisa.
+barreira para a experimentação.
 Mesmo que muitas dessas soluções sejam abertas, o custo dos componentes é alto
 para compras em pequenas quantidades e o método de montagem não é adequado para
-experimentação.
+pesquisa e educação.
 %
 A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
-microcontroladores e módulos ``de platereira'' no mercado brasileiro.
+microcontroladores e módulos ``de platereira'' do mercado brasileiro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % b) Dados do proponente e equipe;
@@ -162,6 +163,7 @@ microcontroladores e módulos ``de platereira'' no mercado brasileiro.
     \begin{itemize}
     %\item Engenharia de Telecomunicações --- Sistemas de Telecomunicações
     \item Ciência da Computação --- Linguagens de Programação
+    \item Outra --- Microeletrônica --- Projeto
     \end{itemize}
 \end{itemize}
 
@@ -174,7 +176,7 @@ microcontroladores e módulos ``de platereira'' no mercado brasileiro.
 \section{ Objetivos Gerais }
 
 Criar uma plataforma de hardware e software para pesquisa e educação em
-Internet das Coisas de baixo consumo de energia, flexível e barata.
+Internet das Coisas que seja flexível, barata e de baixo consumo energético.
 
 \section{ Objetivos Específicos }
 
@@ -182,12 +184,12 @@ A plataforma deve alcançar os seguintes objetivos:
 
 \begin{description}
 %
-\item[Baixo Consumo de Energia:]
+\item[Baixo Consumo Energético:]
   O hardware deve possuir modos de economia de energia para todos os seus
-  componentes, sejam eles o microcontrolador, sensores, ou módulos de rádio.
-  O software será baseado em uma linguagem de programação ciente de energia,
-  que seja capaz de detectar quando os componentes estão ociosos para
-  colocá-los em modo de espera automaticamente, sem a intervenção do
+  componentes, sejam eles o microcontrolador, sensores ou módulos de rádio.
+  O software será baseado em uma linguagem de programação ciente de energia.
+  A linguagem deve ser capaz de detectar quando os componentes estão ociosos
+  para colocá-los em modo de espera automaticamente, sem a intervenção do
   programador.
 %
 \item[Flexível:]
@@ -199,17 +201,16 @@ A plataforma deve alcançar os seguintes objetivos:
   dispositivos de interesse sejam compilados junto com as aplicações.
 %
 \item[Barata:]
-  O hardware deve usar microcontroladores e módulos ``de platereira'' que sejam
-  encontrados com facilidade no mercado brasileiro para compras em pequenas
-  quantidades e a custo baixo.
+  O hardware deve usar microcontroladores e módulos ``de platereira'' comuns no
+  mercado para compras em pequenas quantidades e a custo baixo.
   O plataforma de software deve ser toda baseada em software livre.
 %
 \end{description}
 
 Como principais desafios, o hardware deve possuir mecanismos flexíveis que
-permitam desabilitar periféricos via software e, principalmente, a linguagem de
-programação deve oferecer mecanismos automáticos para colocar o hardware em
-modo de espera, sem esforços extras por parte do programador.
+permitam desabilitar periféricos via software e, principalmente, o software
+deve oferecer mecanismos automáticos para colocar o hardware em modo de espera,
+sem esforços extras por parte do programador.
 
 \begin{comment}
 O enfoque principal se dá no baixo consumo de energia, mas a flexibilidade e
@@ -223,10 +224,10 @@ principalmente no contexto de pesquisa em IoT.
 
 \section{Metodologia}
 
-O projeto possui duas linhas de pesquisa, em \emph{software} e em
-\emph{hardware}, que se complementam para oferecer uma plataforma íntegra, mas
-que também são suficientemente independentes para serem desenvolvidas por
-diferentes equipes em simultâneo.
+O projeto possui duas linhas concomitantes de pesquisa---em \emph{software} e
+em \emph{hardware}---que se complementam para oferecer uma plataforma completa,
+mas que também são suficientemente independentes para serem desenvolvidas o
+máximo em separado.
 
 \subsection{Software}
 
@@ -242,7 +243,7 @@ alguns resultados preliminares no contexto de economia de
 energia~\cite{ceu.lctes18.short}.
 %
 No entanto, a plataforma de software proposta neste projeto requer uma pesquisa
-mais extensa, que deve abranger os seguintes requisitos:
+mais extensa, que ainda deve abranger os seguintes temas:
 %
 \begin{enumerate}
 \item Avaliação qualitativa da usabilidade de \CEU.
@@ -254,17 +255,17 @@ mais extensa, que deve abranger os seguintes requisitos:
 \end{enumerate}
 
 O coordenador do projeto ficará responsável pelas partes mais críticas da
-pesquisa, tais como o funcionamento da linguagem e drivers para os periféricos
-mais essenciais (item 4).
+pesquisa, tais como o funcionamento da linguagem e dos drivers para os
+periféricos mais essenciais (item 4).
 
-A mestranda colaboradora está trabalhando com a avaliação de usabilidade da
-linguagem (item 1).
-Ela vem trabalhando em um ambiente de programação educacional que tem como alvo
-alunos no início da graduação em Ciência da Computação.
-A ideia é introduzir a área IoT e sistemas embarcados já no início do curso.
+Uma aluna de mestrado está trabalhando em um ambiente de programação
+educacional para IoT que tem como alvo alunos no início da graduação em Ciência
+da Computação.
 Nossa hipótese é que o vocabulário especializado de \CEU para lidar com o mundo
 externo (e.g., eventos e concorrência) irá permitir que os alunos desenvolvam
 projetos de IoT simples mas completos.
+Essa frente de pesquisa será importante para a avaliação de usabilidade da
+linguagem (item 1).
 
 O desenvolvimento de aplicações IoT completas (item 3) é fundamental para
 validar o projeto como um todo.
@@ -300,7 +301,7 @@ brasileiro com os seguintes requisitos:
 \end{minipage}
 \end{figure}
 
-Os microcontroladores em placas compatíveis com a plataforma Arduino são os
+Os microcontroladores de placas compatíveis com a plataforma Arduino são os
 mais populares e disponíveis no mercado brasileiro.
 %
 A Figura~\ref{fig.arduinos} indica alguns modelos que podem ser avaliados para
@@ -312,11 +313,11 @@ de energia e custa em torno de R\$15,00.
 O levantamento, avaliação e montagem dos módulos de rádio é a etapa mais
 sensível no projeto da plataforma de hardware (item 2).
 %
-A Figura~\ref{fig.rfs} ilustra a diversidade de implementações de módulos RF
-disponíveis, alguns com custo inferior a R\$10,00.
+A Figura~\ref{fig.rfs} ilustra a diversidade de módulos RF disponíveis, alguns
+com custo inferior a R\$10,00.
 %
 Idealmente, cada um dos módulos considerados deve ser acoplável e facilmente
-intercambiáveis na nossa plataforma, dado que temos como objetivo a
+intercambiável na nossa plataforma, dado que temos como objetivo a
 flexibilidade para experimentação e pesquisa em IoT.
 %
 Cada módulo poderá ser avaliado e desenvolvido em separado.
@@ -333,8 +334,8 @@ periféricos (item 3).
 Além disso, deve oferecer mecanismos para desligá-los eletricamente por
 software de modo a economizar energia.
 %
-Esses mecanismos podem usar diretamente os pinos do microcontrolador para
-sensores mais simples ou transistores que funcionarão como chaves eletrônicas.
+Esses mecanismos podem usar diretamente os pinos do microcontrolador (para
+sensores mais simples) ou transistores que funcionarão como chaves eletrônicas.
 %
 Esse estudo também pode ser realizado em separado por uma outra equipe.
 
@@ -345,7 +346,7 @@ Esse estudo também pode ser realizado em separado por uma outra equipe.
 \begin{minipage}{0.50\textwidth}
 \includegraphics[height=100px]{smd}
 \end{minipage}
-\caption{ Componentes \emph{Through-Hole} e \emph{Surface-Mount}.
+\caption{ Componentes \emph{Through-Hole} (esquerda) e \emph{Surface-Mount} (direita).
     \label{fig.mount}
 }
 \end{figure}
@@ -371,12 +372,12 @@ Figura~\ref{fig.protos}.
 \end{figure}
 
 É importante destacar que o desenvolvimento do hardware não depende da frente
-de pesquisa de software em \CEU, e tampouco depende do desenvolvimento de
-softwares complexos.
+de pesquisa de software em \CEU, e tampouco depende do desenvolvimento (em
+outras linguagens) de softwares complexos.
 Como iremos utilizar hardware de commodity, já existe oferta suficiente de
 bibliotecas e aplicações open-source para testes.
 %
-Apenas para a avaliação de consumo de energia, as duas frentes deverão ser
+Apenas para a avaliação de consumo de energia que as duas frentes deverão ser
 necessariamente integradas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -394,38 +395,40 @@ O projeto é dividido 4 em fases:
 \item[Fase 0:]
 Essa fase compreende o trabalho de infra-estrutura da linguagem \CEU.
 Inclui atividades no início do projeto relativas ao suporte recente de
-interrupções e gerenciamento de energia a ser finalizado.
+interrupções e gerenciamento de energia a serem finalizados.
 Também inclui atividades eventuais de manutenção da linguagem durante todo o
 projeto, mas que não devem ser desconsideradas.
 %
 \item[Fase I:]
 Essa fase compreende o levantamento de módulos de RF a serem considerados e
 que em seguida farão parte de plataforma de hardware.
-O protótipo já deve acomodar os diferentes módulos de RF para testes de campo.
+O primeiro protótipo de hardwre já deve acomodar os diferentes módulos de RF
+para testes de campo.
 Por fim, faremos uma avaliação quantitativa dos módulos considerando diversas
-propriedades, tais como alcance, velocidade e consumo de energia em modo ativo.
+propriedades, tais como alcance, velocidade e consumo de energia em modo ativo
+(ainda sem modo de espera).
 Essa avaliação usará \emph{microbenchmarks} para as diversas propriedades e não
-depende da linguagem \CEU.
+depende da linguagem \CEU pois usará bibliotecas já disponíveis em C.
 %
 \item[Fase II:]
 Essa fase inclui o desenvolvimento em \CEU de drivers para os rádios e
 aplicações completas de IoT, que devem ser eficientes em termos de consumo de
 energia no modo de espera.
-Faremos uma avaliação quantitativa do uso de recursos de para as aplicações
-desenvolvidas.
+Faremos uma avaliação quantitativa do uso de recursos computacionais para as
+aplicações desenvolvidas.
 Em particular, esperamos economias de energia significativas pelo gerenciamento
 de energia automático de \CEU.
 %
 \item[Fase III:]
-Essa fase complementa a Fase I com outros sensores, periféricos, mecanismos de
-economia de energia e também ajustes e acabamentos do protótipo.
+Essa fase complementa as Fases I e II com outros sensores, periféricos,
+mecanismos de economia de energia e também ajustes e acabamentos do protótipo.
 Ao fim do projeto, esperamos ter uma solução completa de IoT de hardware e
 software para um artigo de maior impacto.
 %
 \item[Fase IV:]
 Essa fase é relativamente independente das demais e deve se estender por todo o
 período do projeto.
-O objetivo dela é avaliar qualitativamente a usabilidade de \CEU com alunos de
+O objetivo é avaliar qualitativamente a usabilidade de \CEU com alunos de
 graduação.
 Ela também vai servir para atrair novos alunos para a área de sistemas
 embarcados e IoT, construir uma comunidade em torno de \CEU, e avaliar o nosso

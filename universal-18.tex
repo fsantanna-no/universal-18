@@ -56,19 +56,20 @@ a expansão da Internet das Coisas (IoT).
 A maior parte do consumo de energia nesses dispositivos será em
 \emph{modo de espera} (aka \emph{standby mode}), quando eles não estão
 transmitindo ou processando dados ativamente.
-Em particular, o modo de espera é responsável por aproximadamente 10 a 15\% do
-consumo residencial.
+Em particular, o modo de espera é responsável por 10 a 15\% do consumo
+residencial.
 Também estima-se que as emissões globais de $CO_2$ relacionadas ao modo de
 espera seja equivalente às emissões de 1 milhão de carros.
 
-Os efeitos alarmantes de consumo de energia, aliados ao crescimento estimado da
-IoT, tornou o modo de espera para dispositivos conectados um dos seis pilares
-do \emph{Plano de Ação para Eficiência Energética do G20}%
+Os efeitos do consumo de energia sobre o meio ambiente, aliados ao grande
+crescimento da IoT no curto prazo, tornou o modo de espera para dispositivos
+conectados um dos seis pilares do \emph{Plano de Ação para Eficiência
+Energética do G20}%
 \footnote{G20's Energy Efficiency Action Plan: \url{https://www.iea-4e.org/projects/g20}}.
 No entanto, o uso efetivo do modo de espera requer grandes esforços de hardware
 e software para detectar períodos de inatividade nos dispositivos, identificar
-periféricos que devem permanecer ligados, e aplicar os modos mais econômicos
-sempre que possível.
+periféricos que devem permanecer ligados, e aplicar os modos de energia mais
+econômicos sempre que possível.
 
 Este projeto tem como principal objetivo desenvolver uma plataforma de hardware
 e software de baixo consumo de energia para pesquisa e educação em Internet das
@@ -76,19 +77,15 @@ Coisas.
 
 No que diz respeito ao software, iremos adotar a linguagem de programação
 reativa \CEU~\cite{ceu.sensys13}, a qual estamos desenvolvendo durante os
-últimos 8 anos, e que tem como alvo sistemas embarcados e IoT.
+últimos 8 anos, e que tem como alvo sistemas embarcados e a IoT.
 %
-\CEU é baseada no modelo de concorrência síncrono, que troca poder por
-confiabilidade e possui um modelo de tempo mais simples que cobre a maioria dos
-requisitos de aplicações IoT.
+\CEU é baseada no modelo de concorrência síncrono, em que todas as reações ao
+mundo externo são computadas em tempo finito, garantindo que as aplicações
+sempre cheguem a um estado ocioso suscetível ao modo de espera.
 %
-Nesse modelo, todas as reações ao mundo externo são computadas em tempo finito,
-garantindo que as aplicações sempre chegam a um estado ocioso suscetível ao
-modo de espera.
-%
-A linguagem já possui suporte recente básico ao tratamento de interrupções e
+A linguagem já possui suporte básico recente ao tratamento de interrupções e
 gerenciamento de energia automático.
-Em testes preliminares, já alcançamos economias entre 20 e 90\% para aplicações
+Em testes preliminares, alcançamos economias entre 20 e 90\% para aplicações
 escritas puramente em \CEU.
 
 No que diz respeito ao hardware, iremos adotar microcontroladores e
@@ -96,14 +93,14 @@ transceptores de rádio de baixo consumo de energia.
 Além disso, buscamos como requisitos extras o baixo custo e flexibilidade da
 plataforma para maior adequação ao contexto de pesquisa e educação.
 %
-As soluções completas de hardware IoT atuais são acessíveis mas pouco
-flexíveis, pois tipicamente possuem componentes minúsculos já soldados às
+As soluções completas de hardware para IoT atuais são até acessíveis mas pouco
+flexíveis, pois tipicamente possuem componentes SMD reduzidos já soldados às
 placas.
 Em particular, os módulos de rádio são previamente determinados, criando uma
 barreira para a experimentação.
-Mesmo que muitas dessas soluções sejam abertas, o custo dos componentes é alto
-para compras em pequenas quantidades e o método de montagem não é adequado para
-pesquisa e educação.
+Mesmo que muitas dessas soluções sejam abertas, o custo de seus componentes é
+alto para compras em pequenas quantidades e o método de montagem industrial não
+é adequado para pesquisa e educação.
 %
 A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
 microcontroladores e módulos ``de platereira'' do mercado brasileiro.
@@ -173,12 +170,12 @@ microcontroladores e módulos ``de platereira'' do mercado brasileiro.
 
 \section{ Objetivos }
 
-\section{ Objetivos Gerais }
+\subsection{ Objetivos Gerais }
 
 Criar uma plataforma de hardware e software para pesquisa e educação em
 Internet das Coisas que seja flexível, barata e de baixo consumo energético.
 
-\section{ Objetivos Específicos }
+\subsection{ Objetivos Específicos }
 
 A plataforma deve alcançar os seguintes objetivos:
 
@@ -203,7 +200,7 @@ A plataforma deve alcançar os seguintes objetivos:
 \item[Barata:]
   O hardware deve usar microcontroladores e módulos ``de platereira'' comuns no
   mercado para compras em pequenas quantidades e a custo baixo.
-  O plataforma de software deve ser toda baseada em software livre.
+  O plataforma de software deve ser \emph{open source}.
 %
 \end{description}
 
@@ -237,10 +234,9 @@ A linguagem já possui uma implementação estável e foi adotada com sucesso na
 áreas de redes de sensores sem fio~\cite{ceu.sensys13,ceu.terra},
 jogos~\cite{ceu.mod15} e multimídia~\cite{ceumedia.webmedia16}.
 
-Mais recentemente, pesquisamos como prover tratamento de interrupções e
-gerenciamento automático de modo de espera diretamente na linguagem, já obtendo
-alguns resultados preliminares no contexto de economia de
-energia~\cite{ceu.lctes18.short}.
+Mais recentemente, investigamos como prover tratamento de interrupções e
+gerenciamento automático do modo de espera diretamente em \CEU, já obtendo
+resultados preliminares com baixo consumo de energia~\cite{ceu.lctes18.short}.
 %
 No entanto, a plataforma de software proposta neste projeto requer uma pesquisa
 mais extensa, que ainda deve abranger os seguintes temas:
@@ -324,20 +320,21 @@ Cada módulo poderá ser avaliado e desenvolvido em separado.
 Para isso, iremos propor a exploração desses módulos em projetos da disciplina
 de Software Embarcado em nosso programa de pós graduação.
 
-O levantamento dos microcontroladores e módulos de RF, a avaliação das
-propriedades de interesse e a prototipagem de um hardware flexível aos diversos
-módulos devem ser tema de uma dissertação de Mestrado.
+%O levantamento dos microcontroladores e módulos de RF, a avaliação das
+%propriedades de interesse e a prototipagem de um hardware flexível aos diversos
+%módulos devem ser tema de uma dissertação de Mestrado.
 
 A plataforma também deve permitir o acoplamento de sensores e outros
 periféricos (item 3).
 %
-Além disso, deve oferecer mecanismos para desligá-los eletricamente por
-software de modo a economizar energia.
+Além disso, deve oferecer mecanismos para desligá-los por software de modo a
+economizar energia.
 %
 Esses mecanismos podem usar diretamente os pinos do microcontrolador (para
 sensores mais simples) ou transistores que funcionarão como chaves eletrônicas.
 %
-Esse estudo também pode ser realizado em separado por uma outra equipe.
+Esse estudo pode ser realizado em separado da avaliação dos módulos de rádio
+(item 2).
 
 \begin{figure}
 \begin{minipage}{0.50\textwidth}
@@ -372,10 +369,10 @@ Figura~\ref{fig.protos}.
 \end{figure}
 
 É importante destacar que o desenvolvimento do hardware não depende da frente
-de pesquisa de software em \CEU, e tampouco depende do desenvolvimento (em
-outras linguagens) de softwares complexos.
+de pesquisa de software em \CEU, e tampouco depende do desenvolvimento de
+softwares complexos (mesmo que em outras linguagens).
 Como iremos utilizar hardware de commodity, já existe oferta suficiente de
-bibliotecas e aplicações open-source para testes.
+bibliotecas de software e aplicações open-source para testes.
 %
 Apenas para a avaliação de consumo de energia que as duas frentes deverão ser
 necessariamente integradas.
@@ -387,9 +384,9 @@ necessariamente integradas.
 \section{ Cronograma de Atividades }
 
 O projeto deve se estender por 2 anos (8 trimestres) conforme retratado na
-Tabela~\ref{fig.crono}.
+Figura~\ref{fig.crono}.
 %
-O projeto é dividido 4 em fases:
+O projeto é dividido em 5 fases:
 %
 \begin{description}
 \item[Fase 0:]
@@ -397,16 +394,16 @@ Essa fase compreende o trabalho de infra-estrutura da linguagem \CEU.
 Inclui atividades no início do projeto relativas ao suporte recente de
 interrupções e gerenciamento de energia a serem finalizados.
 Também inclui atividades eventuais de manutenção da linguagem durante todo o
-projeto, mas que não devem ser desconsideradas.
+projeto.
 %
 \item[Fase I:]
 Essa fase compreende o levantamento de módulos de RF a serem considerados e
 que em seguida farão parte de plataforma de hardware.
-O primeiro protótipo de hardwre já deve acomodar os diferentes módulos de RF
+O primeiro protótipo de hardware já deve acomodar os diferentes módulos de RF
 para testes de campo.
 Por fim, faremos uma avaliação quantitativa dos módulos considerando diversas
 propriedades, tais como alcance, velocidade e consumo de energia em modo ativo
-(ainda sem modo de espera).
+(i.e., sem modo de espera).
 Essa avaliação usará \emph{microbenchmarks} para as diversas propriedades e não
 depende da linguagem \CEU pois usará bibliotecas já disponíveis em C.
 %
@@ -416,8 +413,8 @@ aplicações completas de IoT, que devem ser eficientes em termos de consumo de
 energia no modo de espera.
 Faremos uma avaliação quantitativa do uso de recursos computacionais para as
 aplicações desenvolvidas.
-Em particular, esperamos economias de energia significativas pelo gerenciamento
-de energia automático de \CEU.
+Esperamos obter economias de energia significativas pelo gerenciamento de
+energia automático de \CEU.
 %
 \item[Fase III:]
 Essa fase complementa as Fases I e II com outros sensores, periféricos,
@@ -426,8 +423,8 @@ Ao fim do projeto, esperamos ter uma solução completa de IoT de hardware e
 software para um artigo de maior impacto.
 %
 \item[Fase IV:]
-Essa fase é relativamente independente das demais e deve se estender por todo o
-período do projeto.
+Essa fase é independente das demais e deve se estender por todo o período do
+projeto.
 O objetivo é avaliar qualitativamente a usabilidade de \CEU com alunos de
 graduação.
 Ela também vai servir para atrair novos alunos para a área de sistemas
@@ -446,7 +443,7 @@ protótipo de hardware em momentos tardios do projeto.
 
 \section{ Resultados Esperados }
 
-Ao fim de cada período indicado, esperamos ter os seguintes resultados:
+Ao fim de cada semestre, esperamos obter os seguintes resultados:
 
 \begin{itemize}
 \item Primeiro Semestre:
@@ -487,25 +484,25 @@ Ao fim de cada período indicado, esperamos ter os seguintes resultados:
 
 Como destacado no resumo do projeto, o consumo de energia estimado com o
 crescimento da IoT terá consequências significativas para o meio ambiente.
-O nossa proposta para tratamento automático para modo de espera no nível da
-linguagem de programação pode ser solução uma escalável para esse problema, uma
-vez que, potencialmente, todas as aplicações escritas em \CEU se beneficiariam
-desse mecanismo, sem esforços extras de programação.
+A nossa proposta para tratamento automático do modo de espera no nível da
+linguagem de programação pode ser solução uma escalável para esse problema.
+Potencialmente, todas as aplicações escritas em \CEU se beneficiariam desse
+mecanismo automático, sem esforços extras de programação.
 
 \CEU é uma linguagem que vem sendo desenvolvida pelos últimos 8 anos, desde o
-início do doutorado do proponente.
+início do doutorado do pesquisador proponente.
 Além das nossas próprias contribuições científicas, \CEU já foi utilizada como
 base para a pesquisa de terceiros~\cite{ceu.terber} e também para o
 desenvolvimento de produtos na indústria de sistemas embarcados.
 \CEU oferece um modelo de concorrência antagônico ao de linguagens mais
-populares e também incomum inclusive na academia.
+tradicionais (incluindo linguagens acadêmicas).
 Isso concede a ela algumas frentes de inovação, como por exemplo o
-gerenciamento automático de energia proposto nesse trabalho.
+gerenciamento automático de energia.
 
-A nossa proposta é uma plataforma aberta tanto de software como de hardware e
+A nossa proposta é uma plataforma aberta tanto de software como de hardware que
 pode ser reusada por outros grupos de pesquisa.
 Propomos uma solução flexível para atender cenários diversos e também de baixo
-custo para maior adoção.
+custo para estimular uma maior adoção.
 
 Um objetivo secundário do nosso trabalho é criar um ambiente de programação
 para educação em IoT.
@@ -522,18 +519,18 @@ possível.
 
 A Figura~\ref{fig.orcamento} detalha o orçamento por semestre para o período
 total de 2 anos do projeto.
-O orçamento total é de R\$27.420,00 divididos em capital (R\$11.500,00) e
-custeio (R\$15.920,00).
+O orçamento total é de R\$27.420,00 divididos em recursos de capital
+(R\$11.500,00) e custeio (R\$15.920,00).
 
-Os recursos de capital se concentram no primeiro semestre com a compra de um
+Os recursos de capital se concentram no primeiro semestre, com a compra de um
 notebook, monitor e osciloscópio.
 Além disso, adquiriremos os componentes para o desenvolvimento da plataforma de
 hardware aos poucos, ao longo dos 4 semestres.
 
 Os recursos de custeio se concentram em viagens para eventos e congressos de
-IoT.
-Esperamos ter material para até 4 artigos científicos e esperamos publicar
-alguns deles em conferências.
+IoT e sistemas embarcados.
+Esperamos ter material para até 4 artigos científicos e deejamos publicar
+alguns deles em conferências para maior divulgação.
 Dentre as possíveis conferências, podemos destacar o \emph{Simpósio Brasileiro
 de Redes de Computadores (SBRC)}, \emph{Brazilian Symposium on Computing
 Systems Engineering (SBESC)} e o \emph{ACM Conference on Embedded Networked
@@ -548,6 +545,7 @@ de circuito impresso para a plataforma de hardware.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{comment}
 TODO:
 - Serrapilheira
 - Falar mais sobre ferramenta da Anny, GSoC
@@ -557,6 +555,7 @@ k) Perspectivas de colaborações interinstitucionais para a execução do proje
 l) Recursos financeiros de outras fontes aprovados para aplicação no projeto;
 m) Disponibilidade efetiva de infraestrutura e de apoio técnico para o desenvolvimento do
 projeto;
+\end{comment}
 
 \bibliographystyle{plain}
 \bibliography{my,other,serra} 

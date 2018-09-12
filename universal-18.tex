@@ -56,7 +56,7 @@ a expansão da Internet das Coisas (IoT).
 A maior parte do consumo de energia nesses dispositivos será em
 \emph{modo de espera} (aka \emph{standby mode}), quando eles não estão
 transmitindo ou processando dados ativamente.
-Em particular, o modo de espera é responsável por 10 a 15\% do consumo
+Atualmente, o modo de espera é responsável por 10 a 15\% do consumo
 residencial.
 Também estima-se que as emissões globais de $CO_2$ relacionadas ao modo de
 espera seja equivalente às emissões de 1 milhão de carros.
@@ -68,8 +68,8 @@ Energética do G20}%
 \footnote{G20's Energy Efficiency Action Plan: \url{https://www.iea-4e.org/projects/g20}}.
 No entanto, o uso efetivo do modo de espera requer grandes esforços de hardware
 e software para detectar períodos de inatividade nos dispositivos, identificar
-periféricos que devem permanecer ligados, e aplicar os modos de energia mais
-econômicos sempre que possível.
+periféricos que devem (ainda) permanecer ligados, e aplicar os modos de energia
+mais econômicos sempre que possível.
 
 Este projeto tem como principal objetivo desenvolver uma plataforma de hardware
 e software de baixo consumo de energia para pesquisa e educação em Internet das
@@ -79,12 +79,11 @@ No que diz respeito ao software, iremos adotar a linguagem de programação
 reativa \CEU~\cite{ceu.sensys13}, a qual estamos desenvolvendo durante os
 últimos 8 anos, e que tem como alvo sistemas embarcados e a IoT.
 %
-\CEU é baseada no modelo de concorrência síncrono, em que todas as reações ao
+\CEU é baseada no modelo de concorrência síncrono, no qual todas as reações ao
 mundo externo são computadas em tempo finito, garantindo que as aplicações
 sempre cheguem a um estado ocioso suscetível ao modo de espera.
 %
-A linguagem já possui suporte básico recente ao tratamento de interrupções e
-gerenciamento de energia automático.
+A linguagem já possui suporte recente ao gerenciamento automático de energia.
 Em testes preliminares, alcançamos economias entre 20 e 90\% para aplicações
 escritas puramente em \CEU.
 
@@ -93,14 +92,12 @@ transceptores de rádio de baixo consumo de energia.
 Além disso, buscamos como requisitos extras o baixo custo e flexibilidade da
 plataforma para maior adequação ao contexto de pesquisa e educação.
 %
-As soluções completas de hardware para IoT atuais são até acessíveis mas pouco
-flexíveis, pois tipicamente possuem componentes SMD reduzidos já soldados às
-placas.
-Em particular, os módulos de rádio são previamente determinados, criando uma
-barreira para a experimentação.
-Mesmo que muitas dessas soluções sejam abertas, o custo de seus componentes é
-alto para compras em pequenas quantidades e o método de montagem industrial não
-é adequado para pesquisa e educação.
+As soluções completas de hardware para IoT atuais são pouco flexíveis, pois
+tipicamente possuem componentes SMD já soldados às placas.
+Em particular, os módulos de rádio são pré-determinados, criando uma barreira
+para a experimentação.
+Mesmo havendo soluções abertas, o método de montagem industrial tipicamente
+adotado não é adequado para pesquisa e educação.
 %
 A nossa proposta visa projetar uma solução flexível e de baixo custo baseada em
 microcontroladores e módulos ``de platereira'' do mercado brasileiro.
@@ -120,29 +117,26 @@ microcontroladores e módulos ``de platereira'' do mercado brasileiro.
         \item \textbf{E-mail:} \\
               \url{francisco@ime.uerj.br}
         \item \textbf{Lattes:} \\
-              {\scriptsize{\url{http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4736349P3}}}
+              \url{http://lattes.cnpq.br/0077491494754494}
         \item \textbf{Instituição:}                                     \\
               Departamento de Informática e Ciências da Computação      \\
               Programa de Pós-Graduação em Engenharia Eletrônica (PEL)  \\
               Universidade Estadual do Rio de Janeiro (UERJ)
     \end{itemize}
 
-    TODO
-    \begin{comment}
-    \item Fabio Mascarenhas de Queiroz
+    \item Alexandre Sztajnberg
     \begin{itemize}
-        \item Função: Professor Colaborador;
-        \item Lattes: http://lattes.cnpq.br/2273723591083358; 
-        \item Instituição: Universidade Federal do Rio de Janeiro
+        \item \textbf{Função:} \\
+              Pesquisador Colaborador
+        \item \textbf{E-mail:} \\
+              \url{alexszt@ime.uerj.br}
+        \item \textbf{Lattes:} \\
+              \url{http://lattes.cnpq.br/0403732822984772}
+        \item \textbf{Instituição:}                                     \\
+              Departamento de Informática e Ciências da Computação      \\
+              Programa de Pós-Graduação em Engenharia Eletrônica (PEL)  \\
+              Universidade Estadual do Rio de Janeiro (UERJ)
     \end{itemize}
-
-    \item Gilney de Azevedo Alves Junior
-    \begin{itemize}
-        \item Função: Colaborador (Aluno de Graduação);
-        \item Lattes: http://lattes.cnpq.br/8502686732277287; 
-        \item Instituição: Universidade Federal do Rio Grande do Norte
-    \end{itemize}
-    \end{comment}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,6 +221,7 @@ mas que também são suficientemente independentes para serem desenvolvidas o
 máximo em separado.
 
 \subsection{Software}
+\label{sec.metodologia.software}
 
 Grande parte da pesquisa em software está fundamentada em trabalhos anteriores
 nossos com a linguagem \CEU~\cite{ceu.sensys13,ceu.tecs17,ceu.lctes18}.
@@ -544,15 +539,36 @@ de circuito impresso para a plataforma de hardware.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% l) Recursos financeiros de outras fontes aprovados para aplicação no projeto;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ Recursos de Outras Fontes }
+
+O pesquisador proponente é atualmente coordenador do projeto intitulado
+\emph{Energy Efficiency for IoT Software in the Large} financiado pelo
+Instituto Serrapilheira em sua 1a chamada pública%
+\footnote{\url{https://serrapilheira.org/chamada-publica-no1/}}.
+%
+O projeto conta com financiamento de R\$70.000 e tem previsão de término para
+fevereiro de 2019.
+%
+O escopo do projeto se concentra em desenvolver novos mecanismos de eficiência
+energética no nível de linguagem de programação.
+%
+Os recursos financeiros estão sendo usados principalmente para pagamento de
+bolsas e viagens.
+
+O novo projeto proposto neste documento é uma plataforma completa de hardware e
+software que já considera os resultados obtidos no projeto em andamento,
+conforme descrito no início da Seção~\ref{sec.metodologia.software}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{comment}
-TODO:
-- Serrapilheira
 - Falar mais sobre ferramenta da Anny, GSoC
 
 j) Colaborações ou parcerias já estabelecidas para a execução do projeto;
 k) Perspectivas de colaborações interinstitucionais para a execução do projeto;
-l) Recursos financeiros de outras fontes aprovados para aplicação no projeto;
 m) Disponibilidade efetiva de infraestrutura e de apoio técnico para o desenvolvimento do
 projeto;
 \end{comment}

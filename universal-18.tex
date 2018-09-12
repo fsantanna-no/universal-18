@@ -8,6 +8,25 @@
 \usepackage{xspace}
 \usepackage{graphicx}
 
+\begin{comment}
+Responsibility in the project:
+(in portuguese)
+
+- Liderança técnica do projeto.
+- Desenvolvimento das partes mais críticas do projeto relacionadas ao design do
+  linguagem de programação.
+- Orientação de alunos de graduação e mestrado.
+
+Responsibility in the project:
+(in english)
+
+- Technical leadership.
+- Development of the most critical parts of the project related to the design
+  of the programming language.
+- Supervising students.
+
+\end{comment}
+
 \newcommand{\CEU}{\textsc{C\'{e}u}\xspace}
 
 \title{ Uma Plataforma Flexível, Barata e de Baixo Consumo Energético para a
@@ -202,6 +221,44 @@ Como principais desafios, o hardware deve possuir mecanismos flexíveis que
 permitam desabilitar periféricos via software e, principalmente, o software
 deve oferecer mecanismos automáticos para colocar o hardware em modo de espera,
 sem esforços extras por parte do programador.
+
+\begin{comment}
+
+To create a hardware and software platform for research and education in IoT
+that is flexible, cheap, and low power.
+
+The platform should achieve the following objectives:
+
+- Low power consumption:
+
+The hardware should provide low-power mode for all of its components, such as
+the microcontroller, sensors, and radio modules.
+The software will be based on an energy-aware programming language.
+The language should be able to detect when the components are idle in order to
+put them in standby mode automatically, without intervention from the
+programmer.
+
+- Flexible:
+
+The hardware should provide connections for a variety of sensors and radio
+transceivers.
+In particular, the most popular radio modules should all be attachable
+externally the hardware.
+The software should be modular in such a way that only the drivers from
+peripherals in use are compiled with the applications.
+
+- Cheap:
+
+The hardware should use off-the-shelf microcontrollers and modules that are
+typical in the market to buy in small quantities and at low cost.
+The software platform should be open source.
+
+As the main challenges, the hardware should provide flexible mechanisms to
+allow disabling peripherals via software, and the software should provide
+automatic mechanisms to put the hardware in standby without programmer
+intervention.
+
+\end{comment}
 
 \begin{comment}
 O enfoque principal se dá no baixo consumo de energia, mas a flexibilidade e
@@ -426,6 +483,49 @@ Ela também vai servir para atrair novos alunos para a área de sistemas
 embarcados e IoT, construir uma comunidade em torno de \CEU, e avaliar o nosso
 protótipo de hardware em momentos tardios do projeto.
 \end{description}
+
+\begin{comment}
+%\item[Fase 0:]
+This phase constitutes the infra-structure work in the language Céu.
+It includes activities in the beginning of the project related to the new
+support for interrupts and energy management yet to be finalized.
+It also includes bookkeeping activities in the language throughout the whole
+project.
+
+%\item[Fase I:]
+This phase constitutes the study of RF modules to be considered for the
+hardware platform.
+The first hardware prototype should already accommodate the different RF
+modules for tests.
+Finally, we will make a quantitative evaluation of the modules considering
+several properties, such as range, speed, and energy consumption in active mode
+(i.e., without standby).
+This evaluation will use microbenchmarks for the several properties and does
+not depend on the language Céu because it will use existing libraries in C.
+
+% \item[Fase II:]
+This phase includes the development in Céu of the radio drivers and complete
+IoT applications, which should be energy efficient in standby mode.
+We will make a quantitative evaluation of the computational resources for the
+applications.
+We expect to obtain significant economy due to the automatic energy management
+of Céu.
+
+%\item[Fase III:]
+This phase complements the previous two phases with other sensors, peripherals,
+energy-efficiency mechanisms, and also adjusts in the prototype.
+At the end of the project, we expect to have a complete hardware and software
+IoT solution for a paper of higher impact.
+
+%\item[Fase IV:]
+This phase is independent from the others and should extend through the whole
+project.
+The goal is to evaluate qualitatively the usability of Céu with undergraduate
+students.
+It will also serve to attract new students for the area of embedded systems and
+IoT, to build a community around Céu, and to evaluate our hardware prototype
+later in the project.
+\end{comment}
 
 \begin{figure}[t]
 \includegraphics[width=\textwidth]{crono}
